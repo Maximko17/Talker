@@ -34,7 +34,7 @@ export default class LoginPage extends Component {
                 you love.
               </p>
               <a
-                href="https://talker-2.herokuapp.com/oauth2/authorize/google?redirect_uri=https://talker-2.herokuapp.com/oauth2/redirect"
+                href="http://localhost:8080/oauth2/authorize/google?redirect_uri=http://localhost:8080/oauth2/redirect"
                 className="google-btn"
               >
                 <img
