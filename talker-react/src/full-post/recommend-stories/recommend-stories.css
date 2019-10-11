@@ -1,0 +1,104 @@
+.after-post-recomendations {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: center;
+}
+.after-post-recomendations-title {
+  max-width: 1160px;
+  margin: auto;
+  border-bottom: 1px solid lightgray;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 20px 0 10px;
+}
+.after-post-recomendation {
+  max-width: 360px;
+  min-width: 320px;
+  height: 240px;
+  background: white;
+  margin: 20px 20px;
+  border-radius: 5px;
+}
+.after-post-recomendation-image img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  object-position: 10 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.after-post-recomendation-section {
+  cursor: pointer;
+}
+.after-post-recomendation-section p {
+  font-size: 0.9rem;
+  color: grey;
+  margin-bottom: 0;
+}
+.after-post-recomendation-title {
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  height: 65px;
+}
+.after-post-recomendation-profile {
+  display: flex;
+}
+.after-post-recomendation-profile img {
+  width: 45px;
+  border-radius: 50px;
+}
+.after-post-recomendation-profile div:nth-child(2) {
+  margin-left: 10px;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.after-post-recomendation-profile div:nth-child(2) p {
+  font-size: 0.8rem;
+  color: grey;
+}
+.after-post-recomendation-profile div:nth-child(3) {
+  width: 70px;
+}
+.after-post-recomendation-profile div:nth-child(3) button {
+  background: white;
+  color: #dc3545;
+  font-size: 1.5rem;
+}
+.after-post-recomendation-profile div:nth-child(3) span {
+  color: grey;
+}
+.after-post-recomendation-profile div:nth-child(4) {
+  color: lightgray;
+  padding: 5px 10px;
+}
+.after-post-recomendation-profile div:nth-child(5) button {
+  background: white;
+  color: grey;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+}
+.after-post-recomendation-profile div:nth-child(5) button:hover {
+  color: black;
+}
+
+.likeButton {
+  color: #dc3545;
+  background: white;
+  padding: 1px;
+}
+.unlikeButton {
+  color: gray;
+  background: white;
+  padding: 1px;
+}
+
+@media screen and (max-width: 600px) {
+  .after-post-recomendation {
+    margin: 10px 0;
+    width: auto;
+    max-width: 95%;
+  }
+}

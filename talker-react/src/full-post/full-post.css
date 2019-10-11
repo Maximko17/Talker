@@ -1,0 +1,208 @@
+.full-post {
+  max-width: 720px;
+  margin: 60px auto 0 auto;
+}
+
+.full-post-title {
+  font-size: 2.3rem;
+  font-weight: 400;
+}
+
+.full-post-subtitle {
+  font-size: 1.6rem;
+  color: gray;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: underline;
+}
+.mini-follow-button {
+  line-height: 1;
+  margin-left: 10px;
+  height: 20px;
+  width: 60px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #0481bf;
+  color: #0481bf;
+  background: white;
+}
+
+.mini-follow-button-active {
+  line-height: 1;
+  margin-left: 10px;
+  height: 20px;
+  width: 70px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #0481bf;
+  color: white;
+  background: #0481bf;
+}
+
+.full-post-text {
+  margin-top: 40px;
+  font-size: 1.3rem;
+}
+
+.after-post-functional {
+  margin: 20px 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.after-post-likes div {
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  position: relative;
+}
+.big-like-button {
+  position: absolute;
+  background: white;
+  color: #dc3545;
+  font-size: 1.8rem;
+  top: 0px;
+  left: 0px;
+  padding-left: 8px;
+  outline: none !important;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  border: 1px solid;
+  border: 1px solid lightgray;
+}
+.big-like-button-active {
+  position: absolute;
+  background: white;
+  color: white;
+  font-size: 1.8rem;
+  top: 0px;
+  left: 0px;
+  padding-left: 8px;
+  outline: none !important;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background: #dc3545;
+  border: 1px solid #dc3545;
+}
+.big-like-button:hover {
+  border: 1px solid #dc3545;
+}
+.after-post-likes span {
+  margin: 20px 20px;
+  color: gray;
+}
+
+.after-post-additionals button {
+  background: white;
+  color: grey;
+  font-size: 1.3rem;
+  margin: 20px 5px;
+  transition: all 0.2s ease;
+}
+.after-post-additionals button span {
+  font-size: 1rem;
+}
+.after-post-additionals button:hover {
+  color: black;
+}
+.after-post-additionals .block-user {
+  font-size: 1rem;
+  color: black;
+  margin: 0;
+}
+
+.after-post-profile-info {
+  border-top: 1px solid lightgray;
+  height: auto;
+  justify-content: space-between;
+  padding-top: 15px;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+}
+.after-post-profile-info .medium-follow-button,
+.after-post-profile-info .medium-follow-button-active {
+  margin-right: 10px;
+}
+.after-post-profile-info img {
+  border-radius: 50px;
+  width: 80px;
+  height: 80px;
+}
+.after-post-profile-info .profile-info {
+  display: flex;
+  align-items: center;
+}
+.after-post-profile-info a {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.after-post-profile-info a:hover {
+  text-decoration: none;
+  color: #00d957;
+}
+
+.after-post-profile-info p {
+  font-size: 0.9rem;
+  color: grey;
+  margin: 0;
+}
+.medium-follow-button {
+  width: 65px;
+  height: 32px;
+  font-size: 0.8rem;
+  color: rgba(3, 168, 124, 1);
+  background: white;
+  border: 1px solid rgba(3, 168, 124, 1);
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+.medium-follow-button:hover {
+  color: rgba(3, 121, 89);
+  background: white;
+  border: 1px solid rgba(3, 121, 89);
+}
+.medium-follow-button-active {
+  transition: all 0.2s ease;
+  border-radius: 3px;
+  width: 75px;
+  height: 32px;
+  font-size: 0.9rem;
+  color: white;
+  background: rgb(3, 121, 89);
+  border: 1px solid rgba(3, 121, 89);
+}
+.profile-photo img {
+  border-radius: 5px;
+}
+
+.block-message {
+  width: 1000px;
+  margin: auto;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-bottom: 1px solid black;
+}
+.block-post-message,
+.not-found-post-message {
+  margin: 30px auto 10px;
+  max-width: 1160px;
+  font-weight: 700;
+  text-align: center;
+}
+.block-post-message {
+  font-size: 2rem;
+}
+.not-found-post-message {
+  font-size: 4rem;
+}

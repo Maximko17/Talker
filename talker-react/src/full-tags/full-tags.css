@@ -1,0 +1,64 @@
+.full-tags {
+  max-width: 900px;
+  margin: 50px auto;
+}
+.tag-title p:nth-child(1) {
+  color: grey;
+  margin: 0;
+}
+.tag-title p:nth-child(2) {
+  font-size: 2.3rem;
+}
+
+.content {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.related-tags {
+  width: 25%;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.related-tags-title {
+  margin: 10px 0;
+}
+.tags-posts {
+  margin-left: 20px;
+  width: 72%;
+}
+
+.tags-tabs {
+  height: 30px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  margin-bottom: 20px;
+}
+.tags-tabs button {
+  color: gray;
+  background: white;
+  height: 30px;
+  border-bottom: 1px solid lightgrey;
+}
+.tags-tabs button:hover,
+.tags-tabs button:focus,
+.tab-active {
+  color: black !important;
+  border-bottom: 1px solid black !important;
+  outline: none;
+}
+.tab-active {
+  font-weight: 700;
+}
+.tags-tabs button:nth-child(2) {
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .related-tags {
+    width: 100%;
+  }
+  .tags-posts {
+    margin-left: 0;
+    width: 100%;
+  }
+}

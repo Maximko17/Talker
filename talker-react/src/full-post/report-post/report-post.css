@@ -1,0 +1,39 @@
+.reportModal .modal-body {
+  width: 50%;
+  color: grey;
+  margin: auto;
+}
+.reportModal h5 {
+  color: #000;
+}
+.reportModal .radio,
+.reportModal .checkbox {
+  text-align: left;
+}
+.reportModal .radio label {
+  margin: 5px 10px;
+}
+.reportModal .checkbox label {
+  margin: 20px 10px 0 10px;
+}
+.reportModal .report {
+  color: #03a87c;
+  border: 1px solid #03a87c;
+  font-size: 1rem;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background: white;
+  margin: 0 10px
+}
+.reportModal .cancel {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 5px 15px;
+  background: white
+}
+.reportModal .cancel:hover {
+  border: 1px solid grey;
+  border-radius: 5px;
+  color: grey;
+}

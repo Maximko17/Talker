@@ -1,0 +1,53 @@
+.seacrh-posts {
+  display: flex;
+  justify-content: space-between;
+}
+.seacrh-posts .posts {
+  width: 70%;
+  border-top: 1px solid #ebebeb;
+}
+.seacrh-posts .section {
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+
+.seacrh-posts .post {
+  margin: 0 0 20px 0;
+  padding: 15px 30px 15px 0;
+  box-shadow: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 0px;
+}
+.seacrh-posts .others {
+  width: 25%;
+}
+.seacrh-posts .tags {
+  margin-bottom: 100px;
+  border-top: 1px solid #ebebeb;
+  height: auto;
+}
+.seacrh-posts .people {
+  margin-bottom: 100px;
+  border-top: 1px solid #ebebeb;
+}
+
+@media screen and (max-width: 950px) {
+  .seacrh-posts .others {
+    display: none;
+  }
+  .seacrh-posts .section {
+    display: none;
+  }
+  .seacrh-posts .posts {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .seacrh-posts .post {
+    margin: 20px 0 20px 0;
+    width: 100%;
+    padding: 0;
+  }
+}

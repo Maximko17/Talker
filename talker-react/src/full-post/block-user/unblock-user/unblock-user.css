@@ -1,0 +1,24 @@
+#unblockModal .modal-body {
+  text-align: center;
+}
+
+#unblockModal .unblock,
+#unblockModal .cancel {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 10px 15px;
+  width: 100px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+#unblockModal .unblock:hover {
+  border: 1px solid #00d957;
+  color: #00d957;
+}
+#unblockModal .cancel:hover {
+  border: 1px solid grey;
+  border-radius: 5px;
+  color: grey;
+}

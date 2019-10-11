@@ -1,0 +1,51 @@
+.full-image-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  min-width: 950px;
+  max-width: 100%;
+  min-height: 450px;
+  max-height: 100%;
+  display: flex;
+  border-radius: 3px;
+}
+
+.full-image-content .image {
+  width: 70%;
+  background: #2e2e2e;
+}
+.full-image-content .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+.full-image-content .info {
+  width: 30%;
+  background: white;
+}
+.full-image-content .info .username {
+  width: 100%;
+  height: 80px;
+  padding: 15px;
+  display: flex;
+  border-bottom: 1px solid #ededed;
+}
+.info .username img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+}
+.info .username div {
+  margin-left: 10px;
+}
+.info .username a {
+  font-weight: 700;
+  font-size: 0.93rem;
+}
+.info .username span {
+  display: block;
+  font-size: 0.9rem;
+  color: grey;
+}

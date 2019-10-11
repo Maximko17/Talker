@@ -1,0 +1,138 @@
+textarea:-moz-placeholder {
+  color: #ffd595; /* Цвет подсказывающего текста */
+}
+
+.new-post-layout {
+  max-width: 820px;
+  margin: 30px auto 0 auto;
+}
+.add-title {
+  display: block;
+  width: 100%;
+  height: 50px;
+  font-size: 2rem;
+  font-weight: 600;
+  resize: none;
+  overflow: hidden;
+  border: none;
+  max-width: 720px;
+  margin: auto;
+}
+.add-subtitle {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  resize: none;
+  overflow: hidden;
+  color: #4f4f4f;
+  border: none;
+  max-width: 720px;
+  margin: auto;
+}
+.add-paragraph {
+  margin-bottom: 30px;
+  display: flex;
+}
+.delete-element-button {
+  width: 50px;
+  height: 33px;
+  background: white;
+  opacity: 0;
+}
+.points {
+  max-width: 720px;
+  text-align: center;
+  width: 100%;
+}
+.points span {
+  font-size: 1rem;
+  margin: 0 10px;
+  font-weight: 700;
+  color: grey;
+}
+.add-paragraph:hover .delete-element-button {
+  opacity: 1;
+}
+
+.editableArea {
+  width: 100%;
+  height: auto;
+  font-size: 1.1rem;
+  font-weight: 400;
+  max-width: 720px;
+  margin: auto;
+  outline: none;
+  border: 1px solid black;
+}
+
+.add-image {
+  margin: 20px 0;
+  max-width: 720px;
+}
+.add-image img {
+  display: block;
+  margin: auto;
+  max-width: 690px;
+}
+.add-image img:hover {
+  border: 3px solid #34e79a;
+}
+.add-image input {
+  visibility: hidden;
+  display: block;
+  margin: auto;
+  border: none;
+  text-align: center;
+  width: 100%;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: grey;
+  font-weight: 500;
+}
+.image-popup {
+  background: #262625;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+}
+.image-popup button {
+  color: white;
+  padding: 3px 0;
+  background: #262625;
+  font-size: 1.3rem;
+}
+.start-kit {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0px;
+  max-width: 720px;
+}
+.start-kit p {
+  font-size: 1.2rem;
+  margin: 0 10px;
+  font-weight: 600;
+}
+.start-kit button,
+.start-kit label {
+  background: white;
+  border: 1px solid black;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  margin: 0 5px;
+  width: 40px;
+  height: 35px;
+  cursor: pointer;
+  text-align: center;
+}
+.start-kit input[type="file"] {
+  display: none;
+}
+
+#error-message {
+  text-align: center;
+  max-width: 720px;
+}

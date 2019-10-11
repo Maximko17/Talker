@@ -1,0 +1,67 @@
+#blockModal .modal-body {
+  color: black;
+  text-align: left;
+}
+#blockModal .modal-body {
+  padding: 1rem 1rem 0 1rem;
+}
+#blockModal .modal-body ul {
+  margin-bottom: 2rem;
+}
+#blockModal .modal-body li {
+  margin: 15px 0;
+}
+.modal-body h5 {
+  text-align: center;
+  color: black;
+}
+#blockModal .modal-footer {
+  padding: 0 1rem 1rem 1rem;
+  display: block;
+  border: none;
+  color: black;
+  text-align: center;
+}
+.modal-footer .block,
+.modal-footer .cancel {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 10px 15px;
+  width: 100px;
+  background: white;
+  transition: all 0.2s ease;
+}
+.modal-footer .block:hover {
+  border: 1px solid #dc3545;
+  color: #dc3545;
+}
+.modal-footer .cancel:hover {
+  border: 1px solid grey;
+  border-radius: 5px;
+  color: grey;
+}
+
+#blockModal .modal-content {
+  background: none;
+  border: none;
+  background-color: white;
+}
+#blockModal .modal-backdrop.show {
+  opacity: 0.98;
+}
+#blockModal .modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+@media (min-width: 576px) {
+  #blockModal .modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
+  }
+}

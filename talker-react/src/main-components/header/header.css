@@ -1,0 +1,173 @@
+.profile-header {
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: absolute;
+}
+body {
+  margin: 0;
+}
+button {
+  border: none;
+  outline: none !important;
+}
+button:focus {
+  outline: none !important;
+}
+.header-content {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+}
+.profile-header-logo {
+  width: 500px;
+  font-size: 2rem;
+  color: white;
+  font-weight: 700;
+  padding: 7px 0;
+}
+
+.profile-header-info {
+  width: 500px;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.profile-header-info button {
+  margin: 15px 2px;
+  background: inherit;
+  color: white;
+}
+
+.profile-header-info button img {
+  border-radius: 50px;
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.profile-sign-up-button {
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 3px;
+}
+.default-sign-up-button {
+  border: 1px solid black;
+  background: white;
+  padding: 8px 10px;
+  border-radius: 3px;
+  margin: 0 3px;
+}
+.sign-in-button {
+  border: 1px solid black;
+  background: white;
+  padding: 8px 10px;
+  border-radius: 3px;
+}
+
+.default-header {
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.default-header-logo {
+  width: 500px;
+  font-size: 2rem;
+  color: black;
+  font-weight: 700;
+  padding: 7px 0;
+}
+
+.search-button,
+.bell-button,
+.userinfo-button {
+  margin: 15px 2px;
+  background: inherit;
+  color: black;
+}
+
+.default-header-info {
+  width: 500px;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.notifications {
+  position: relative;
+}
+.notifications-count {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: red;
+  color: white;
+  top: 13px;
+  left: 13px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 0.6rem;
+}
+.default-header-info button img {
+  border-radius: 25px;
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.publishPost-button {
+  color: #03a87c;
+  border: 1px solid #03a87d;
+  margin: 0px 20px 0 0;
+  font-size: 0.9rem;
+  padding: 1px 10px;
+  background: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.short-logo {
+  margin-top: 5px;
+  min-width: 35px;
+  background: #2e2e2e;
+  color: white;
+  text-align: center;
+  line-height: 1.4;
+}
+.draft {
+  font-size: 0.9rem;
+  font-weight: 480;
+  color: black;
+  margin: 0 10px;
+  height: 44px;
+  line-height: 3.4;
+}
+.saving {
+  font-size: 0.9rem;
+  font-weight: 480;
+  color: gray;
+  margin: 0 10px;
+  height: 44px;
+  line-height: 3.4;
+}
+
+@media screen and (max-width: 1000px) {
+  .profile-header-logo,
+  .default-header-logo {
+    padding: 7px 5px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .profile-header-logo,
+  .default-header-logo {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .draft {
+    display: none;
+  }
+}

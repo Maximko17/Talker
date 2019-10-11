@@ -1,0 +1,44 @@
+.popover-info {
+  background: white;
+  width: 280px;
+  height: auto;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid lightgray;
+}
+.popover-info div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+}
+.popover-user-info {
+  display: block !important;
+}
+.popover-user-info p:nth-child(1) {
+  font-weight: bold;
+  margin: 0;
+}
+.popover-user-info p:nth-child(2) {
+  font-size: 0.8rem;
+  color: #00d957;
+  margin-bottom: 0.5rem;
+}
+.popover-user-info p:nth-child(3) {
+  font-size: 0.8rem;
+  color: grey;
+}
+.popover-user-image img {
+  width: 50px;
+  border-radius: 50px;
+}
+.popover-followers-info {
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0 0;
+}
+.popover-followers-info span {
+  font-size: 0.9rem;
+  line-height: 2.1;
+  color: grey;
+}

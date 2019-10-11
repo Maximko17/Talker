@@ -1,0 +1,39 @@
+.archive-dates {
+  display: flex;
+}
+
+.archive-dates button {
+  color: grey;
+  background: white;
+  transition: all 0.2s ease;
+}
+.archive-dates button:hover {
+  color: black;
+}
+
+.archive-all button {
+  font-weight: 500;
+  width: 50px;
+}
+.archive-year-months-days {
+  width: 470px;
+  display: flex;
+}
+.archive-year-months-days div {
+  min-width: 70px;
+  max-width: 300px;
+}
+
+.active-day {
+  color: black !important;
+  font-weight: 900;
+}
+
+.archive-year-months-days button {
+  color: grey;
+  padding: 0px 10px 10px 10px;
+}
+
+.archive-dates > .sort {
+  margin-top: 0;
+}

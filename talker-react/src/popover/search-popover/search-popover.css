@@ -1,0 +1,79 @@
+.search-popover {
+  text-align: left;
+  position: absolute;
+  top: 62px;
+  left: 10px;
+  width: 250px;
+  height: auto;
+  background: white;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 10px 15px;
+}
+.search-popover .search-all {
+  color: grey;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.search-popover .search-all span {
+  font-size: 0.9rem;
+  color: grey;
+  margin: 0 5px;
+}
+.search-popover .search-all:hover span {
+  color: #696464;
+}
+.search-popover .search-all i {
+  font-size: 0.8rem;
+}
+.search-popover .title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dedede;
+  padding: 10px 0 5px 0;
+}
+.search-popover .title .more {
+  color: grey;
+  cursor: pointer;
+}
+.item {
+  margin: 10px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.item:hover span {
+  text-decoration: underline;
+}
+.found-users span,
+.found-publications span,
+.found-tags span {
+  color: black;
+  font-size: 0.9rem;
+  margin: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.search-popover img {
+  width: 34px;
+  height: 34px;
+}
+.search-popover .found-users img {
+  border-radius: 50px;
+}
+.search-popover .found-publications img {
+  border-radius: 5px;
+  object-fit: cover;
+}
+.search-popover .found-tags i {
+  width: 34px;
+  text-align: center;
+}
+
+@media screen and (max-width: 420px) {
+  .search-popover {
+    left: -107px;
+    width: 320px;
+  }
+}

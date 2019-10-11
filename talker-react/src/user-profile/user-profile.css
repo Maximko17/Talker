@@ -1,0 +1,179 @@
+.user-content {
+  width: 100%;
+  height: auto;
+  padding-top: 90px;
+  display: flex;
+  justify-content: center;
+}
+.user-info {
+  width: 540px;
+  height: 260px;
+  color: white;
+}
+
+.profile-username {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0;
+  line-height: 1;
+}
+.edit-profile {
+  font-size: 0.8rem;
+  height: auto;
+  background: inherit;
+  color: white;
+  border: 1px solid white;
+  border-radius: 3px;
+  margin: 5px 0 0 20px;
+}
+.profile-registr-time {
+  font-size: 0.9rem;
+  color: lavender;
+}
+.profile-user-description {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.profile-user-followers a:nth-child(1),
+.profile-user-followers a:nth-child(2),
+.profile-user-followers
+  a:nth-child(1):hover
+  .profile-user-followers
+  a:nth-child(2):hover {
+  font-size: 0.9rem;
+  color: lavender;
+  margin: 0;
+}
+
+.profile-social,
+.profile-social:hover {
+  font-size: 1.3rem;
+  color: lavender;
+  margin: 0 5px;
+}
+
+.profile-follow-btn {
+  background: inherit;
+  font-size: 0.9rem;
+  color: lavender;
+  border: 1px solid lavender;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+}
+.profile-follow-btn-active {
+  background: rgba(3, 168, 124, 1);
+  font-size: 0.9rem;
+  color: white;
+  border: 1px solid white;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+}
+.profile-follow-more {
+  width: 40px;
+  height: 40px;
+  background: inherit;
+  font-size: 0.9rem;
+  color: lavender;
+}
+
+p > i {
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+.user-photo {
+  text-align: center;
+  width: 110px;
+  height: 107px;
+  border-radius: 100px;
+  border-bottom: 2px solid aquamarine;
+  border-top: 2px solid aquamarine;
+}
+.user-photo img {
+  margin-top: 2px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.profile-message-button {
+  background: inherit;
+  font-size: 0.9rem;
+  color: lavender;
+  border: 1px solid lavender;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 2.6;
+  margin-right: 5px;
+}
+.profile-message-button:hover {
+  text-decoration: none;
+  color: lavender;
+}
+.profile-tabs {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 650px;
+  height: 30px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+}
+.profile-tabs button {
+  color: gray;
+  background: white;
+  height: 30px;
+  border-bottom: 1px solid lightgrey;
+  margin-left: 10px;
+}
+.profile-tabs button:hover,
+.profile-tabs button:focus,
+.profile-tabs-active {
+  color: black !important;
+  border-bottom: 1px solid black !important;
+  outline: none;
+}
+.profile-tabs button:nth-child(1) {
+  margin-left: 0;
+}
+
+.null-content {
+  margin: auto;
+  width: 100%;
+  max-width: 650px;
+  height: 30px;
+  text-align: center;
+  background: #faf7f7;
+  border-radius: 2px;
+  font-size: 1.2rem;
+  font-family: none;
+}
+
+.profile-block-dropdown {
+  background: inherit;
+  color: white;
+  font-size: 1rem;
+  line-height: 2.5;
+}
+.dropdown-menu button {
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 650px) {
+  .user-content {
+    flex-wrap: wrap-reverse;
+  }
+  .user-info {
+    padding: 10px;
+  }
+  #latest {
+    padding: 0 5px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .profile-tabs {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,79 @@
+.notification-popover {
+  background: white;
+  height: auto;
+  max-height: 400px;
+  width: 355px;
+  margin-top: 21px;
+  border: 1px solid lightgray;
+  overflow: scroll;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.notification-popover::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+}
+.notification-popover::-webkit-scrollbar {
+  width: 5px;
+  background-color: white;
+}
+.notification {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 15px 15px 15px;
+}
+
+.notification .image {
+  text-align: center;
+}
+.notification img {
+  border-radius: 25px;
+  margin-top: 8px;
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+}
+.notification i {
+  width: 35px;
+}
+.notification span {
+  color: black;
+}
+.notification .date {
+  display: block;
+  color: grey;
+}
+.notification .new {
+  font-size: 0.9rem;
+  color: #dc3545;
+  margin: 0 5px;
+}
+.notification .message {
+  padding-left: 15px;
+  color: grey;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+.notification:hover .message,
+.notification:hover .date {
+  color: black;
+  cursor: pointer;
+}
+.older-notifications {
+  font-size: 0.9rem;
+  padding: 10px 15px 0 15px;
+}
+.older-notifications a {
+  text-decoration: none;
+  color: rgb(2, 158, 116);
+  transition: all 0.2s ease;
+}
+.older-notifications a:hover {
+  text-decoration: none;
+  color: #038a66;
+}
+@media screen and (max-width: 420px) {
+  .notification-popover {
+    width: 320px;
+  }
+}

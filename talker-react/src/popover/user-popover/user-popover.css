@@ -1,0 +1,43 @@
+.user-popover {
+  background: white;
+  height: auto;
+  width: 250px;
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.user-popover > .first-section {
+  display: flex;
+  max-height: 100px;
+  cursor: pointer;
+}
+.user-popover > .first-section img {
+  width: 45px;
+  border-radius: 50px;
+}
+.user-popover > .first-section p:nth-child(1) {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.user-popover > .first-section p:nth-child(2) {
+  font-size: 0.8rem;
+  color: grey;
+}
+.user-popover > .second-section,
+.user-popover > .third-section,
+.user-popover > .fourth-section {
+  display: grid;
+  border-top: 1px solid lightgray;
+  padding-top: 1rem;
+}
+.user-popover a {
+  color: grey;
+  margin-bottom: 1rem;
+}
+.user-popover a:hover {
+  text-decoration: none;
+}

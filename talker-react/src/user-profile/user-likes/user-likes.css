@@ -1,0 +1,15 @@
+.user-likes {
+  width: 650px;
+  margin: auto;
+}
+.likes-title {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin: 0px 0 0px 5px;
+}
+.likes-tabs {
+  text-align: center;
+}
+.likes-tabs button {
+  background: white;
+}

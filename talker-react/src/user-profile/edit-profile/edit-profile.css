@@ -1,0 +1,160 @@
+input,
+input:active,
+textarea,
+textarea:active {
+  outline: none;
+}
+.user-content textarea {
+  resize: none;
+  margin: 0;
+}
+.edit-username {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0;
+  line-height: 1;
+  background: initial;
+  border: none;
+  color: white;
+  width: 400px;
+}
+
+.edit-description {
+  background: initial;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  width: 400px;
+}
+
+.user-content ::-webkit-input-placeholder {
+  /* Chrome */
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.edit-user-photo {
+  text-align: center;
+  width: 140px;
+  height: 138px;
+  border-radius: 100px;
+  position: relative;
+}
+.edit-user-photo input[type="file"] {
+  display: none;
+}
+.edit-user-photo i {
+  color: lightgray;
+  font-size: 3rem;
+  margin-top: 40px;
+  transition: all 0.2s ease;
+}
+.edit-user-photo:hover i {
+  color: white;
+}
+
+.edit-user-photo img {
+  margin-top: 2px;
+  width: 130px;
+  height: 130px;
+  border-radius: 100px;
+}
+
+.edit-user-photo-button {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 130px;
+  height: 130px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.profile-user-socials a {
+  background: initial;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 5px;
+}
+.profile-user-socials a:nth-child(1) {
+  margin-left: 0;
+}
+
+.fa-times {
+  color: red;
+  font-size: 2rem;
+  margin-left: 5px;
+}
+.fa-check {
+  color: green;
+  font-size: 2rem;
+  margin-left: 5px;
+}
+.socials-title {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin: 0;
+}
+.socials-info {
+  background: white;
+  width: 280px;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid lightgray;
+}
+
+.socials-info p {
+  font-weight: 500;
+}
+.socials-info input {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid grey;
+  height: 35px;
+}
+
+.save-button {
+  margin: 30px 10px 0 0;
+  padding: 5px 15px;
+  border-radius: 3px;
+  background: rgba(3, 168, 124, 1);
+  color: white;
+  transition: all 0.2s ease;
+}
+.save-button:hover {
+  background: rgba(2, 158, 116, 1);
+}
+.cancel-button {
+  margin: 30px 10px 0 0;
+  padding: 5px 15px;
+  border-radius: 3px;
+  background: #e3e3e3;
+  color: #636363;
+  transition: all 0.2s ease;
+}
+.cancel-button:hover {
+  background: #d1d1d1;
+}
+
+.profile-themes {
+  display: flex;
+  width: 400px;
+  margin: 20px auto;
+}
+.profile-themes p {
+  font-weight: 600;
+  line-height: 1.8;
+  margin-right: 10px;
+}
+.profile-themes button {
+  padding: 8px 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  margin: 0 5px;
+}

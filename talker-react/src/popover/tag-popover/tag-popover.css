@@ -1,0 +1,36 @@
+.tag-popover {
+  text-align: left;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+.popover-arrow {
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #f2f2f2;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.tag-popover-content {
+  background: white;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-bottom: 2px solid lightgray;
+  min-width: 150px;
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+}
+.found-tag {
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+}
+.found-tag:hover {
+  color: white;
+  background: #03a87c;
+}
+.error-message {
+  padding: 10px;
+  font-weight: 600;
+}

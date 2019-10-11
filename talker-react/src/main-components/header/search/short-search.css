@@ -1,0 +1,19 @@
+.short-search {
+  position: relative;
+}
+.search-input {
+  border: none;
+  width: 0px;
+  transition: all 0.2s ease;
+}
+.search-input-active {
+  border: none;
+  width: 200px;
+  transition: all 0.2s ease;
+  background: inherit;
+}
+@media screen and (max-width: 420px) {
+  .search-input-active {
+    width: 100px;
+  }
+}

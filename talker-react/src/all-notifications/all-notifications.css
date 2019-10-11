@@ -1,0 +1,81 @@
+.all-notifications {
+  max-width: 790px;
+  margin: 40px auto;
+}
+.all-notifications-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.all-notifications-title span {
+  font-size: 1.1rem;
+  color: grey;
+  font-weight: 500;
+}
+
+.one-notification .date {
+  color: black;
+  display: block;
+  font-size: 1.1rem;
+  margin: 30px 0 5px 0;
+}
+.one-notification .content {
+  margin: 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.1s ease;
+  flex-wrap: nowrap;
+}
+.one-notification .content div:nth-child(1) {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+.one-notification .content p {
+  margin: 0 0 0 20px;
+  color: #dc3545;
+}
+.one-notification .user {
+  color: black;
+}
+.one-notification .content img {
+  border-radius: 50px;
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+}
+.one-notification .content span {
+  font-size: 1.2rem;
+  color: dimgray;
+}
+.one-notification:hover .content {
+  background: #f5f2f2;
+}
+.one-notification:hover .notification-actions {
+  opacity: 1;
+}
+.notification-actions {
+  opacity: 1;
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+}
+.notification-actions .dropdown {
+  margin: 0 20px;
+  background: inherit;
+}
+.notification-actions .dropdown button {
+  background: inherit;
+}
+.notification-actions img {
+  border-radius: 0px !important;
+}
+.message-notification {
+  text-align: center;
+  height: 60px;
+}
+.message-notification i {
+  width: 55px;
+  font-size: 1.5rem;
+}

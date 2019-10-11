@@ -1,0 +1,99 @@
+.all-posts-layout {
+  max-width: 1000px;
+  margin: auto;
+}
+.all-posts-title {
+  margin: 50px 0 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.all-posts-title span {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.all-posts-title a {
+  padding: 6px 15px;
+  background: white;
+  border: 1px solid rgb(3, 168, 124);
+  color: rgb(3, 168, 124);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.all-posts-title a:hover {
+  color: rgb(1, 143, 105);
+  border: 1px solid rgb(1, 143, 105);
+}
+.all-posts-layout .profile-tabs {
+  width: 100%;
+  margin: 0;
+  max-width: 100%;
+}
+.my-all-posts {
+  padding: 0 5px;
+}
+.my-one-post {
+  border-bottom: 1px solid lightgray;
+  padding: 15px 0 20px 0;
+}
+.my-one-post a {
+  display: block;
+  text-decoration: none;
+}
+.my-one-post .title {
+  font-size: 1.5rem;
+  font-weight: 650;
+}
+.my-one-post .subtitle,
+.my-one-post .subtitle:hover {
+  font-size: 1.3rem;
+  color: grey;
+}
+.post-info {
+  font-size: 0.9rem;
+  color: grey;
+  padding: 5px 0 0 0;
+}
+.post-info button {
+  background: white;
+  color: grey;
+  vertical-align: middle;
+}
+.my-post-action {
+  width: auto;
+  background: white;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+  border-radius: 3px;
+}
+.my-post-action a {
+  text-align: left;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  color: grey;
+  border: none;
+  background: white;
+  transition: all 0.2s ease;
+}
+.my-post-action a:hover {
+  background: #fafafa;
+  color: black;
+}
+.empty-message {
+  padding: 40px 7px;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+@media screen and (max-width: 400px) {
+  .all-posts-title span {
+    width: 100%;
+  }
+  .all-posts-title div {
+    margin-top: 20px;
+  }
+}

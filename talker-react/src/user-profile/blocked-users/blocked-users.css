@@ -1,0 +1,25 @@
+.block-red-button {
+  width: 75px;
+  height: 32px;
+  font-size: 0.8rem;
+  color: #dc3545;
+  background: white;
+  border: 1px solid #dc3545;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+.block-red-button:hover {
+  color: rgb(245, 20, 42);
+  background: white;
+  border: 1px solid rgb(245, 20, 42);
+}
+.block-red-button-active {
+  transition: all 0.2s ease;
+  border-radius: 3px;
+  width: 65px;
+  height: 32px;
+  font-size: 0.9rem;
+  color: white;
+  background: rgb(245, 20, 42);
+  border: 1px solid rgb(245, 20, 42);
+}

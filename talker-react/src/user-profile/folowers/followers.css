@@ -1,0 +1,83 @@
+.followers {
+  margin: 20px auto;
+  width: 650px;
+}
+.followers-title {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin: 0px 0 20px 10px;
+}
+
+.followers textarea {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  resize: none;
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.follower {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  border: 1px solid lightgray;
+  margin: 10px 0;
+}
+.follower-image {
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.follower-image img {
+  width: 80px;
+  border-radius: 50px;
+  vertical-align: middle;
+}
+.follower-info {
+  margin: 0 0 0 20px;
+}
+.follower-info div {
+  cursor: pointer;
+}
+.follower-info p:nth-child(1) {
+  font-size: 1.1rem;
+  font-weight: 550;
+  margin: 0;
+}
+
+.follower-info p:nth-child(2) {
+  font-size: 0.9rem;
+  font-weight: 470;
+  color: grey;
+}
+
+.default-message-button {
+  background: inherit;
+  font-size: 0.9rem;
+  color: #038f99;
+  border: 1px solid #038f99;
+  width: 65px;
+  padding: 4px 5px 6px 5px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 2.6;
+  margin-right: 5px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+.default-message-button:hover {
+  background: inherit;
+  font-size: 0.9rem;
+  color: #035d99;
+  border: 1px solid #035d99;
+  width: 65px;
+  padding: 4px 5px 6px 5px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 2.6;
+  margin-right: 5px;
+}

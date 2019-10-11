@@ -1,0 +1,119 @@
+#publish-modal {
+  background: white;
+  display: flex;
+  width: 1000px;
+  justify-content: space-between;
+  height: auto;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+#publish-modal .post-preview,
+#publish-modal .more-info {
+  width: 450px;
+}
+#publish-modal input::-moz-placeholder {
+  color: #a3a3a3; /* Цвет подсказывающего текста */
+}
+#publish-modal input::-webkit-input-placeholder {
+  color: #a3a3a3;
+}
+#publish-modal input:-ms-input-placeholder {
+  color: #a3a3a3;
+}
+#publish-modal input::-ms-input-placeholder {
+  color: #a3a3a3;
+}
+#publish-modal input::placeholder {
+  color: #a3a3a3;
+}
+
+.post-preview p {
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.title-preview {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid lightgrey;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 15px 0 10px 0;
+}
+.subtitle-preview {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid lightgrey;
+  width: 100%;
+  font-size: 0.9rem;
+  color: grey;
+}
+.post-tags p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+.publish {
+  padding: 8px 15px;
+  background: #03a87c;
+  color: white;
+  border-radius: 3px;
+  font-size: 0.95rem;
+}
+.publish-cancel {
+  background: white;
+  font-size: 0.95rem;
+  color: grey;
+  margin-left: 10px;
+}
+.add-tags {
+  width: 100%;
+  padding: 5px;
+  min-height: 50px;
+  height: auto;
+  border: 1px solid lightgray;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.add-tag {
+  padding: 5px;
+  background: #f2f2f2;
+  margin: 0 2px;
+  border-radius: 3px;
+}
+.add-tag button {
+  background: inherit;
+  padding: 0 3px;
+}
+.add-tag i {
+  color: #000;
+  font-size: 0.8rem;
+}
+.new-tag {
+  width: auto;
+  min-width: 100px;
+  padding: 8px 5px;
+}
+.new-tag:focus {
+  outline: none;
+}
+@media (max-width: 970px) {
+  #publish-modal {
+    flex-wrap: wrap;
+    padding: 1rem 0.5rem;
+    width: 320px;
+  }
+}

@@ -1,0 +1,34 @@
+#loginPage .modal-header {
+  border-bottom: none;
+  font-size: 1.5rem;
+}
+#loginPage .modal-header button {
+  color: #000 !important;
+}
+#loginPage .modal-body {
+  text-align: center;
+}
+
+.google-btn,
+.facebook-btn {
+  border: 1px solid lightgray;
+  padding: 10px;
+  display: block;
+  border-radius: 3px;
+  color: black !important;
+  transition: all 0.2s ease;
+  margin: 10px 0 0;
+}
+.google-btn:focus,
+.facebook-btn:focus,
+.google-btn:hover,
+.facebook-btn:hover {
+  border: 1px solid black;
+  text-decoration: none;
+  outline: none;
+}
+.google-btn img,
+.facebook-btn img {
+  margin: 0 10px 0 0;
+  height: 25px !important;
+}

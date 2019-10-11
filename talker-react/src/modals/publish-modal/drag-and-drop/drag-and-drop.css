@@ -1,0 +1,59 @@
+.highlight {
+  border: 1px dashed #03a87c;
+}
+.img-preview {
+  height: 200px;
+  background: #f2f2f2;
+  text-align: center;
+}
+.img-preview p {
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 50px;
+  width: 300px;
+  margin: auto;
+}
+.img-preview #gallery {
+  height: 100%;
+}
+.img-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.delete-image {
+  position: absolute;
+  height: 200px;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+.delete-image button {
+  color: #dc3545;
+  background: none;
+  font-size: 2rem;
+  line-height: 5.5;
+}
+.img-preview:hover .delete-image {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.img-preview input[type="file"] {
+  display: none;
+}
+.img-preview label {
+  cursor: pointer;
+  padding: 5px 10px;
+  background: #03a87c;
+  color: white;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+.img-preview label i {
+  margin-right: 5px;
+}

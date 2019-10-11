@@ -1,0 +1,11 @@
+.start-page {
+  max-width: 1000px;
+  margin: 100px auto;
+  text-align: center;
+}
+.start-page p {
+  font-size: 3rem;
+}
+.start-page span {
+  font-size: 1rem;
+}

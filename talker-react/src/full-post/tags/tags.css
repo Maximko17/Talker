@@ -1,0 +1,21 @@
+.full-post-tags {
+  display: flex;
+  margin: 30px 0 10px 0;
+}
+
+.full-post-tags a:nth-child(1) {
+  margin: 0 5px 0 0;
+}
+.full-post-tags a {
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  color: #858585;
+}
+
+.full-post-tags a:hover {
+  background: lightgray;
+}
