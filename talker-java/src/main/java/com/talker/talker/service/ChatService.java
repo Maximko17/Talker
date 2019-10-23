@@ -19,12 +19,10 @@ public class ChatService {
 
     private final ChatRepository chatRepository;
     private final UserService userService;
-    private final FollowersService followersService;
 
-    public ChatService(ChatRepository chatRepository, UserService userService, FollowersService followersService) {
+    public ChatService(ChatRepository chatRepository, UserService userService) {
         this.chatRepository = chatRepository;
         this.userService = userService;
-        this.followersService = followersService;
     }
 
     public ShortPageDto getChats(String authUserEmail, Pageable pageable, String tab) {
@@ -65,23 +63,19 @@ public class ChatService {
     public Long newChat(Integer chatUserId, String authUserEmail) {
         User authUser = userService.getUserByEmail(authUserEmail);
         User chatUser = userService.getUserById(chatUserId);
+//        Boolean haveMeBlocked = userService.haveMeBlockedByThisUser(authUser, chatUser);
 
-        if (followersService.checkSubscriptionToUser(authUser, chatUser)) {
-            Chat chat = chatRepository.findByUserOneAndUserTwoOrUserOneAndUserTwo(authUser, chatUser, chatUser, authUser);
-
-            if (chat != null) {
-                return chat.getChatId();
-            } else {
-                Chat newChat = new Chat();
-                newChat.setUserOne(authUser);
-                newChat.setUserTwo(chatUser);
-                newChat.setChatId(chatRepository.findTopByOrderByChatIdDesc().getChatId() + 1);
-                chatRepository.save(newChat);
-
-                return newChat.getChatId();
-            }
+        Chat chat = chatRepository.findByUserOneAndUserTwoOrUserOneAndUserTwo(authUser, chatUser, chatUser, authUser);
+        if (chat != null) {
+            return chat.getChatId();
         } else {
-            throw new BadRequestEx("You're not a follower");
+            Chat newChat = new Chat();
+            newChat.setUserOne(authUser);
+            newChat.setUserTwo(chatUser);
+            newChat.setChatId(chatRepository.findTopByOrderByChatIdDesc().getChatId() + 1);
+            chatRepository.save(newChat);
+
+            return newChat.getChatId();
         }
     }
 

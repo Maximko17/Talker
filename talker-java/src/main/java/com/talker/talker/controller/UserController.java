@@ -35,8 +35,8 @@ public class UserController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<User> getUserById(@PathVariable Integer userId){
-        return new ResponseEntity<>(userService.getUserById(userId), HttpStatus.OK);
+    public ResponseEntity<User> getUserById(@PathVariable Integer userId, Principal principal){
+        return new ResponseEntity<>(userService.getUserProfile(userId,principal.getName()), HttpStatus.OK);
     }
 
     @PostMapping(value = "/profile/edit",consumes = {"multipart/form-data"})

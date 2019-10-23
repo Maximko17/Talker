@@ -6,7 +6,6 @@ import com.talker.talker.service.ChatMessageService;
 import com.talker.talker.service.ChatService;
 import com.talker.talker.service.ImageService;
 import com.talker.talker.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -47,7 +46,7 @@ public class ChatController {
 
         Chat chat = chatService.getPrivateChat(authUser, chatUser);
         ChatMessage messageToSend = chatMessageService.sendMessage(chatMessage, files, authUser, chatUser, chat);
-        simpMessagingTemplate.convertAndSend("/topic/chat/" + chat.getChatId(), messageToSend);
+        simpMessagingTemplate.convertAndSend("/topic/chat." + chat.getChatId(), messageToSend);
     }
 
     @GetMapping("/chat/download-file/{fileName}")

@@ -46,7 +46,7 @@ public class NotificationService {
             }
             notificationRepository.save(notification);
 
-            simpMessagingTemplate.convertAndSend("/topic/notification/" + toUser.getId(), notification);
+            simpMessagingTemplate.convertAndSend("/topic/notification." + toUser.getId(), notification);
             return notification;
         }
         return null;

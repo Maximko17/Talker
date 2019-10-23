@@ -49,7 +49,7 @@ public class PostsController {
     @PostMapping(value = "/newPost", consumes = "multipart/form-data")
     public ResponseEntity<String> newPost(@RequestPart("post") Posts post,
                                           @RequestPart(value = "images", required = false) MultipartFile[] images, @RequestPart(value = "preview_image", required = false) MultipartFile previewImage, Principal principal) {
-        return new ResponseEntity<>(postsService.newPost(post, images, previewImage, principal.getName()), HttpStatus.OK);
+        return new ResponseEntity<>(postsService.newPost(post, images, previewImage, principal.getName()), HttpStatus.CREATED);
     }
 
     @GetMapping("/profile/{usermail}/allPosts")

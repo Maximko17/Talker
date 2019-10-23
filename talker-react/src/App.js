@@ -39,7 +39,7 @@ if (accessToken) {
     store.dispatch(logout());
     window.location.href = "/";
   }
-  connectToNotificationSocket("/topic/notification/3");
+  connectToNotificationSocket(`/topic/notification.${decode_jwtToken.id}`);
 }
 class App extends Component {
   render() {

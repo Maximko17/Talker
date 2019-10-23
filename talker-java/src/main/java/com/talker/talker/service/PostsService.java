@@ -44,7 +44,7 @@ public class PostsService {
     }
 
     public Posts getPostById(String id, String authUserEmail) {
-        Posts post = postsRepository.findById(id).orElseThrow(()->new NotFoundEx("Post not found"));
+        Posts post = getPostById(id);
         User profileUser = userService.getUserById(post.getUser().getId());
         User authUser = userService.getUserByEmail(authUserEmail);
 
@@ -63,7 +63,7 @@ public class PostsService {
     }
 
     public Posts getPostById(String id) {
-        return postsRepository.findById(id).orElse(null);
+        return postsRepository.findById(id).orElseThrow(()->new NotFoundEx("Post not found"));
     }
 
     public ShortPostPageDto<List<Posts>> getUserPosts(String usermail, String authUserEmail, Pageable pageable) {

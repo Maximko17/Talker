@@ -104,7 +104,7 @@ export const getAllUserPosts = (usermail, size) => async dispatch => {
   } catch (error) {
     dispatch({
       type: GET_ERROR,
-      payload: error.response.data
+      payload: { status: error.response.status }
     });
   }
 };
@@ -137,12 +137,19 @@ export const getBookmarkedPosts = () => async dispatch => {
 };
 
 export const bookmarkPost = (post, isOnePost) => async dispatch => {
-  await axios.post("/post/bookmarkPost", post);
+  try {
+    await axios.post("/post/bookmarkPost", post);
 
-  store.dispatch({
-    type: BOOKMARK_POST,
-    payload: { postId: post.id, isOnePost }
-  });
+    store.dispatch({
+      type: BOOKMARK_POST,
+      payload: { postId: post.id, isOnePost }
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_ERROR,
+      payload: { status: error.response.status }
+    });
+  }
 };
 
 export const deleteBookmarke = (post, isOnePost) => async dispatch => {
@@ -198,18 +205,6 @@ export const getThreeRandomPosts = postId => async dispatch => {
     payload: res.data
   });
 };
-
-// export const getPostsCount = isDraft => async dispatch => {
-//   try {
-//     const res = await axios.get(`/posts/getCount?isDraft=${isDraft}`);
-//     if (res.data != undefined) {
-//       console.log(res.data);
-//       return res.data;
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 export const deletePost = postId => async dispatch => {
   try {

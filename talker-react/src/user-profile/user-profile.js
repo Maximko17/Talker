@@ -59,7 +59,7 @@ class UserProfile extends Component {
   render() {
     const { history, user, security, posts, error } = this.props;
     const { current_tab } = this.state;
-    if (!isEmpty(error)) {
+    if (!isEmpty(error) && error.status === 404) {
       return notFoundException();
     }
     return (

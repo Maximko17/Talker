@@ -57,8 +57,22 @@ public class UserService {
         return profileUser;
     }
 
+    public User getUserProfile(Integer id, String authUserEmail) {
+        User authUser = getUserByEmail(authUserEmail);
+        User profileUser = getUserById(id);
+
+        profileUser.setHaveMeBlocked(haveMeBlockedByThisUser(authUser, profileUser));
+        profileUser.setHaveIBlocked(haveIBlockedThisUser(authUser, profileUser));
+        profileUser.setIsMeFollower(followersService.checkSubscriptionToUser(authUser, profileUser));
+        return profileUser;
+    }
+
     public User getUserByEmail(String usermail) {
         return userRepository.findByEmail(usermail).orElseThrow(()->new NotFoundEx("User not found"));
+    }
+
+    public User getUserById(Integer id) {
+        return userRepository.findById(id).orElseThrow(()->new NotFoundEx("User not found"));
     }
 
     public ShortPageDto getBySearch(String username, Pageable pageable, String authUserEmail) {
@@ -71,10 +85,6 @@ public class UserService {
         });
 
         return new ShortPageDto(users.getContent(), users.getNumberOfElements(), users.getTotalElements());
-    }
-
-    public User getUserById(Integer id) {
-        return userRepository.findById(id).orElseThrow(()->new NotFoundEx("User not found"));
     }
 
     public String editUserProfile(User request_user, MultipartFile photo, Principal principal) {

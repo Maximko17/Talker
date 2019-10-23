@@ -21,7 +21,7 @@ export const createNewChat = (
 ) => async dispatch => {
   await axios.post(`/newChat/user/${userId}`).then(response => {
     connectToChatSocket(
-      `/topic/chat/${response.data}`,
+      `/topic/chat.${response.data}`,
       addNewMessageFunc,
       changeConnectionFunc
     );
