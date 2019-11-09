@@ -58,6 +58,11 @@ public class PostsController {
         return new ResponseEntity<>(postsService.getUserPosts(usermail, principal.getName(), pageable), HttpStatus.OK);
     }
 
+    @GetMapping("/posts/{groupUri}/allPosts")
+    public ResponseEntity<?> getGroupPosts(@PathVariable String groupUri, @PageableDefault(sort = "postDate", direction = Sort.Direction.DESC, size = 5) Pageable pageable, Principal principal) {
+        return new ResponseEntity<>(postsService.getGroupPosts(groupUri, principal.getName(), pageable), HttpStatus.OK);
+    }
+
     @GetMapping("/posts/all-my-posts")
     @JsonView(Views.ShortPost.class)
     public ResponseEntity<?> getUserPosts(@RequestParam("isDraft") Boolean isDraft, @PageableDefault(sort = "postDate", direction = Sort.Direction.DESC) Pageable pageable, Principal principal) {

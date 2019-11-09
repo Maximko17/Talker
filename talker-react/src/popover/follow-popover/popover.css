@@ -4,7 +4,7 @@
   height: auto;
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid lightgray;
 }
 .popover-info div:nth-child(1) {
@@ -25,12 +25,17 @@
 }
 .popover-user-info p:nth-child(3) {
   font-size: 0.8rem;
+  max-width: 150px;
+  word-wrap: break-word;
   color: grey;
 }
 .popover-user-image img {
   width: 50px;
-  border-radius: 50px;
+  height: 50px;
+  border-radius: 100px;
+  object-fit: cover;
 }
+
 .popover-followers-info {
   border-top: 1px solid lightgray;
   display: flex;

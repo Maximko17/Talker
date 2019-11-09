@@ -1,5 +1,6 @@
 package com.talker.talker.repository;
 
+import com.talker.talker.domain.Groups;
 import com.talker.talker.domain.Posts;
 import com.talker.talker.domain.User;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,8 @@ public interface PostsRepository extends JpaRepository<Posts, String> {
     Page<Posts> findByTagsAndIsDraft(List tags, Boolean isDraft, Pageable pageable);
 
     Page<Posts> findByUsersLikes(List<User> users, Pageable pageable);
+
+    Page<Posts> findByGroup(Groups group, Pageable pageable);
 
     Posts getById(String id);
 

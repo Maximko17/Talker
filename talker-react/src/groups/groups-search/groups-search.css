@@ -1,0 +1,35 @@
+.group-search {
+  border: 1px solid lightgray;
+  height: 45px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  justify-content: space-between;
+}
+.group-search input {
+  border: none;
+  height: 100%;
+  font-size: 1.1rem;
+  width: 80%;
+}
+.group-search-clear {
+  background: white;
+  width: 10%;
+  height: 100%;
+}
+.group-search-clear i {
+  color: #c4c4c4;
+  font-size: 1rem;
+}
+.group-search-submit {
+  background: gainsboro;
+  height: 100%;
+  width: 10%;
+}
+.group-search-submit {
+  background: #ebebeb;
+  color: grey;
+  height: 100%;
+  width: 10%;
+}

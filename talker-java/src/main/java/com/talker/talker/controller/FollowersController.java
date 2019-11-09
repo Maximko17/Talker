@@ -39,4 +39,14 @@ public class FollowersController {
     public void deleteUserChannel(@PathVariable Integer userId, Principal principal){
         followersService.unsubscribeFromUser(userId,principal.getName());
     }
+
+    @PostMapping("/subscribeToGroup/{groupURI}")
+    public void createGroupChannel(@PathVariable String groupURI, Principal principal){
+        followersService.subscribeToGroup(groupURI,principal.getName());
+    }
+
+    @DeleteMapping("/unsubscribeFromGroup/{groupURI}")
+    public void deleteGroupChannel(@PathVariable String groupURI, Principal principal){
+        followersService.unsubscribeFromGroup(groupURI,principal.getName());
+    }
 }

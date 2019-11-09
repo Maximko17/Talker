@@ -19,7 +19,7 @@ export default class DragAndDrop extends Component {
   }
 
   onDeleteImage() {
-    document.getElementById("preview-image").remove();
+    this.props.deleteImage();
     this.setState({
       isImage: false
     });
@@ -29,10 +29,8 @@ export default class DragAndDrop extends Component {
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = function() {
-      let img = document.createElement("img");
+      let img = document.getElementById("image");
       img.src = reader.result;
-      img.id = "preview-image";
-      document.getElementById("gallery").appendChild(img);
     };
     this.setState({
       isImage: true
@@ -49,7 +47,7 @@ export default class DragAndDrop extends Component {
         errors.push(`File size ${file.name} esceeds 1МБ.It will notbe loaded`);
       } else {
         dropMessage.innerHTML = "";
-        this.handleFiles(file, "gallery");
+        this.handleFiles(file);
       }
     } else {
       errors.push(
@@ -99,6 +97,7 @@ export default class DragAndDrop extends Component {
 
   render() {
     const { isImage } = this.state;
+    const { initialImage } = this.props;
     return (
       <div
         className="img-preview"
@@ -108,7 +107,7 @@ export default class DragAndDrop extends Component {
         onDragOver={this.onDragOver}
         onDragLeave={this.onDragLeave}
       >
-        {!isImage ? (
+        {initialImage == null && !isImage ? (
           <div>
             <p>
               Upload a high-quality image using the file selection dialog or
@@ -127,9 +126,10 @@ export default class DragAndDrop extends Component {
           </div>
         ) : (
           <div id="gallery">
-            <div className="delete-image">
+            <img src={initialImage} alt="banner_image" id="image" />
+            <div className="image-actions">
               <button type="button" onClick={this.onDeleteImage}>
-                <i className="fas fa-trash" />
+                <i className="fas fa-trash-alt"></i>
               </button>
             </div>
           </div>

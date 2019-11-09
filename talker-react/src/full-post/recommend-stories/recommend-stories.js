@@ -19,19 +19,48 @@ class RecommendStories extends Component {
     this.props.getThreeRandomPosts(this.props.postId);
   }
 
-  onPostClick(postId) {
-    return (window.location.href = `/post/${postId}`);
+  componentDidUpdate(prevProps) {
+    if (prevProps.postId !== this.props.postId) {
+      this.props.getThreeRandomPosts(this.props.postId);
+    }
   }
+
+  render() {
+    const { posts } = this.props;
+    return (
+      <div>
+        <div className="after-post-recomendations-title">More from Talker</div>
+        <div className="after-post-recomendations">
+          {this.getPosts(posts.content)}
+        </div>
+      </div>
+    );
+  }
+
   getPosts(posts) {
-    const { security } = this.props;
+    const { security, history } = this.props;
+    let object, id, name, image, link;
     return (
       posts &&
       posts.map(post => {
+        if (post.user != null) {
+          object = post.user;
+          id = post.user.id;
+          name = post.user.name;
+          image = post.user.photo;
+          link = `/profile/${post.user.email}`;
+        } else {
+          object = post.group;
+          id = post.group.uri;
+          name = post.group.name;
+          image = post.group.image;
+          link = `/groups/${post.group.uri}`;
+        }
         return (
           <div className="after-post-recomendation" key={posts.indexOf(post)}>
             <div
               className="after-post-recomendation-image"
-              onClick={() => this.onPostClick(post.id)}
+              onClick={() => history.push(post.id)}
             >
               <img src={post.main_image} alt="Img" />
             </div>
@@ -47,16 +76,12 @@ class RecommendStories extends Component {
               </div>
               <div className="after-post-recomendation-profile">
                 <div>
-                  <img src={post.user.photo} alt="Img" />
+                  <img src={image} alt="Img" />
                 </div>
                 <div>
                   <Popup
-                    content={popover(post.user, security, "post")}
-                    trigger={
-                      <Link to={`/profile/${post.user.email}`}>
-                        {post.user.name}
-                      </Link>
-                    }
+                    content={popover(object, security, "posts")}
+                    trigger={<Link to={link}>{name}</Link>}
                     flowing
                     hoverable
                     position="top center"
@@ -107,18 +132,6 @@ class RecommendStories extends Component {
           </div>
         );
       })
-    );
-  }
-
-  render() {
-    const { posts } = this.props;
-    return (
-      <div>
-        <div className="after-post-recomendations-title">More from Talker</div>
-        <div className="after-post-recomendations">
-          {this.getPosts(posts.content)}
-        </div>
-      </div>
     );
   }
 }

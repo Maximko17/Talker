@@ -1,13 +1,17 @@
 import {
   GET_USER_PROFILE,
+  CHANGE_USER_ROLE_IN_GROUP,
   SUBSCRIBE_OR_BLOCK_PROFILE_USER,
   UNSUBSCRIBE_OR_UNBLOCK_PROFILE_USER,
+  EXCLUDE_FROM_GROUP,
   SUBSCRIBE_TO_FOLLOWER_USER,
   UNSUBSCRIBE_FROM_FOLLOWER_USER,
+  CHANGE_BAN_STATE_IN_GROUP,
   GET_FOLLOWERS,
   GET_BLOCKED_USERS,
   BLOCK_USERS,
-  UNBLOCK_USERS
+  UNBLOCK_USERS,
+  GET_GROUP_USERS
 } from "../actions/types";
 
 const initialState = {
@@ -26,6 +30,52 @@ export default function(state = initialState, action) {
       return {
         ...state,
         users: action.payload
+      };
+    case GET_GROUP_USERS:
+      return {
+        ...state,
+        users: action.payload
+      };
+    case CHANGE_USER_ROLE_IN_GROUP:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          content: state.users.content.map(role =>
+            role.user.id == action.payload.id
+              ? {
+                  ...role,
+                  role: action.payload.role
+                }
+              : role
+          )
+        }
+      };
+    case CHANGE_BAN_STATE_IN_GROUP:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          content: state.users.content.map(user =>
+            user.email == action.payload
+              ? {
+                  ...user,
+                  amIBannedInAGroup: !user.amIBannedInAGroup
+                }
+              : user
+          )
+        }
+      };
+    case EXCLUDE_FROM_GROUP:
+      return {
+        ...state,
+        users: {
+          content: state.users.content.filter(
+            role => role.user.email != action.payload
+          ),
+          totalElements: state.users.totalElements - 1,
+          currentSize: state.users.currentSize - 1
+        }
       };
     case GET_BLOCKED_USERS:
       return {

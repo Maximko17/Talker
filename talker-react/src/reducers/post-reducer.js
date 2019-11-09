@@ -1,6 +1,7 @@
 import {
   GET_POST,
   GET_ALL_USER_POSTS,
+  GET_ALL_GROUP_POSTS,
   GET_THREE_RANDOM_POSTS,
   GET_POST_RESPONSES,
   LIKE_POST,
@@ -46,6 +47,7 @@ export default function(state = initialState, action) {
     case GET_POST:
       return {
         ...state,
+        posts: {},
         post: action.payload
       };
     case DELETE_POST:
@@ -59,6 +61,12 @@ export default function(state = initialState, action) {
         }
       };
     case GET_ALL_USER_POSTS:
+      return {
+        ...state,
+        post: {},
+        posts: action.payload
+      };
+    case GET_ALL_GROUP_POSTS:
       return {
         ...state,
         post: {},
@@ -396,7 +404,7 @@ export default function(state = initialState, action) {
         posts: {
           ...state.posts,
           content: state.posts.content.map(post =>
-            post.user.email === action.payload.data
+            post.user.id === action.payload.data
               ? action.payload.type === "sub"
                 ? {
                     ...post,
@@ -422,7 +430,7 @@ export default function(state = initialState, action) {
         posts: {
           ...state.posts,
           content: state.posts.content.map(post =>
-            post.user.email === action.payload.data
+            post.user.id === action.payload.data
               ? action.payload.type === "sub"
                 ? {
                     ...post,
@@ -497,305 +505,52 @@ export default function(state = initialState, action) {
       };
 
     case SUBSCRIBE_OR_BLOCK_POST_USER:
-      if (!isEmptyObject(state.post)) {
-        if (state.post.user.email === action.payload.data) {
-          return {
-            ...state,
-            post: {
-              ...state.post,
-              user:
-                action.payload.type === "sub"
-                  ? {
-                      ...state.post.user,
-                      totalFollowers: state.post.user.totalFollowers + 1,
-                      isMeFollower: true
-                    }
-                  : {
-                      ...state.post.user,
-                      totalFollowers:
-                        state.post.user.totalFollowers >= 1
-                          ? state.post.user.totalFollowers - 1
-                          : state.post.user.totalFollowers,
-                      isMeFollower: false,
-                      haveIBlocked: true
-                    }
-            },
-            posts: {
-              ...state.posts,
-              content: state.posts.content.map(post =>
-                post.user.id == action.payload.data
-                  ? {
-                      ...post,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...post.user,
-                              totalFollowers: post.user.totalFollowers + 1,
-                              isMeFollower: true
-                            }
-                          : {
-                              ...post.user,
-                              haveIBlocked: true
-                            }
-                    }
-                  : post
-              )
-            },
-            responses: {
-              ...state.responses,
-              content: state.responses.content.map(response =>
-                response.user.id == action.payload.data
-                  ? {
-                      ...response,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...response.user,
-                              totalFollowers: response.user.totalFollowers + 1,
-                              isMeFollower: true
-                            }
-                          : {
-                              ...response.user,
-                              haveIBlocked: true
-                            }
-                    }
-                  : response
-              )
-            }
-          };
-        } else {
-          return {
-            ...state,
-            posts: {
-              ...state.posts,
-              content: state.posts.content.map(post =>
-                post.user.id == action.payload.data
-                  ? {
-                      ...post,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...post.user,
-                              totalFollowers: post.user.totalFollowers + 1,
-                              isMeFollower: true
-                            }
-                          : {
-                              ...post.user,
-                              haveIBlocked: true
-                            }
-                    }
-                  : post
-              )
-            },
-            responses: {
-              ...state.responses,
-              content: state.responses.content.map(response =>
-                response.user.id == action.payload.data
-                  ? {
-                      ...response,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...response.user,
-                              totalFollowers: response.user.totalFollowers + 1,
-                              isMeFollower: true
-                            }
-                          : {
-                              ...response.user,
-                              haveIBlocked: true
-                            }
-                    }
-                  : response
-              )
-            }
-          };
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          user:
+            action.payload.type === "sub"
+              ? {
+                  ...state.post.user,
+                  totalFollowers: state.post.user.totalFollowers + 1,
+                  isMeFollower: true
+                }
+              : {
+                  ...state.post.user,
+                  totalFollowers:
+                    state.post.user.totalFollowers >= 1
+                      ? state.post.user.totalFollowers - 1
+                      : state.post.user.totalFollowers,
+                  isMeFollower: false,
+                  haveIBlocked: true
+                }
         }
-      } else {
-        return {
-          posts: {
-            ...state.posts,
-            content: state.posts.content.map(post =>
-              post.user.id == action.payload.data
-                ? {
-                    ...post,
-                    user:
-                      action.payload.type === "sub"
-                        ? {
-                            ...post.user,
-                            totalFollowers: post.user.totalFollowers + 1,
-                            isMeFollower: true
-                          }
-                        : {
-                            ...post.user,
-                            haveIBlocked: true
-                          }
-                  }
-                : post
-            )
-          }
-        };
-      }
+      };
 
     case UNSUBSCRIBE_OR_UNBLOCK_POST_USER:
-      if (!isEmptyObject(state.post)) {
-        if (state.post.user.email === action.payload.data) {
-          return {
-            ...state,
-            post: {
-              ...state.post,
-              user:
-                action.payload.type === "sub"
-                  ? {
-                      ...state.post.user,
-                      totalFollowers:
-                        state.post.user.totalFollowers >= 1
-                          ? state.post.user.totalFollowers - 1
-                          : state.post.user.totalFollowers,
-                      isMeFollower: false
-                    }
-                  : {
-                      ...state.post.user,
-                      haveIBlocked: false
-                    }
-            },
-            posts: {
-              ...state.posts,
-              content: state.posts.content.map(post =>
-                post.user.id == action.payload.data
-                  ? {
-                      ...post,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...post.user,
-                              totalFollowers:
-                                post.user.totalFollowers >= 1
-                                  ? post.user.totalFollowers - 1
-                                  : post.user.totalFollowers,
-                              isMeFollower: false
-                            }
-                          : {
-                              ...post.user,
-                              haveIBlocked: false
-                            }
-                    }
-                  : post
-              )
-            },
-            responses: {
-              ...state.responses,
-              content: state.responses.content.map(response =>
-                response.user.id == action.payload.data
-                  ? {
-                      ...response,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...response.user,
-                              totalFollowers:
-                                response.user.totalFollowers >= 1
-                                  ? response.user.totalFollowers - 1
-                                  : response.user.totalFollowers,
-                              isMeFollower: false
-                            }
-                          : {
-                              ...response.user,
-                              haveIBlocked: false
-                            }
-                    }
-                  : response
-              )
-            }
-          };
-        } else {
-          return {
-            ...state,
-            posts: {
-              ...state.posts,
-              content: state.posts.content.map(post =>
-                post.user.id == action.payload.data
-                  ? {
-                      ...post,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...post.user,
-                              totalFollowers:
-                                post.user.totalFollowers >= 1
-                                  ? post.user.totalFollowers - 1
-                                  : post.user.totalFollowers,
-                              isMeFollower: false
-                            }
-                          : {
-                              ...post.user,
-                              haveIBlocked: false
-                            }
-                    }
-                  : post
-              )
-            },
-            responses: {
-              ...state.responses,
-              content: state.responses.content.map(response =>
-                response.user.id == action.payload.data
-                  ? {
-                      ...response,
-                      user:
-                        action.payload.type === "sub"
-                          ? {
-                              ...response.user,
-                              totalFollowers:
-                                response.user.totalFollowers >= 1
-                                  ? response.user.totalFollowers - 1
-                                  : response.user.totalFollowers,
-                              isMeFollower: false
-                            }
-                          : {
-                              ...response.user,
-                              haveIBlocked: false
-                            }
-                    }
-                  : response
-              )
-            }
-          };
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          user:
+            action.payload.type === "sub"
+              ? {
+                  ...state.post.user,
+                  totalFollowers:
+                    state.post.user.totalFollowers >= 1
+                      ? state.post.user.totalFollowers - 1
+                      : state.post.user.totalFollowers,
+                  isMeFollower: false
+                }
+              : {
+                  ...state.post.user,
+                  haveIBlocked: false
+                }
         }
-      } else {
-        return {
-          ...state,
-          posts: {
-            ...state.posts,
-            content: state.posts.content.map(post =>
-              post.user.id == action.payload.data
-                ? {
-                    ...post,
-                    user:
-                      action.payload.type === "sub"
-                        ? {
-                            ...post.user,
-                            totalFollowers: post.user.totalFollowers - 1,
-                            isMeFollower: false
-                          }
-                        : {
-                            ...post.user,
-                            haveIBlocked: false
-                          }
-                  }
-                : post
-            )
-          }
-        };
-      }
+      };
+
     default:
       return state;
   }
-}
-
-function isEmptyObject(obj) {
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      return false;
-    }
-  }
-  return true;
 }

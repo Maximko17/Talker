@@ -17,7 +17,7 @@
   width: 450px;
 }
 #publish-modal input::-moz-placeholder {
-  color: #a3a3a3; /* Цвет подсказывающего текста */
+  color: #a3a3a3;
 }
 #publish-modal input::-webkit-input-placeholder {
   color: #a3a3a3;

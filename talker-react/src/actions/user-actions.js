@@ -206,6 +206,7 @@ export const subscribeToUser = (
   fromWhere
 ) => async dispatch => {
   await axios.post("/followers/subscribeToUser/" + following_user);
+
   switch (fromWhere) {
     case "post":
       store.dispatch({

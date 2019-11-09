@@ -56,6 +56,9 @@ public class Posts{
     @JsonView(Views.SuperShortPost.class)
     private User user;
 
+    @ManyToOne
+    private Groups group;
+
     @ManyToMany
     @JoinTable(name = "posts_tags",
     joinColumns = @JoinColumn(name = "post_id"),

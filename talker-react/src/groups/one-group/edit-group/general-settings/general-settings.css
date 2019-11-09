@@ -1,0 +1,56 @@
+.group-photo {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: 10px auto 10px auto;
+}
+.group-photo img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.group-photo input[type="file"] {
+  display: none;
+}
+.group-photo button,
+.group-photo button i {
+  background: inherit;
+  color: white;
+  font-size: 0.9rem;
+  margin: 1px;
+  background: rgba(0, 0, 0, 0);
+}
+.group-photo label {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+.group-photo-upload {
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  position: absolute;
+  bottom: -29px;
+  right: 0;
+  width: 100%;
+  height: auto;
+  transition: all 0.2s ease;
+}
+.group-photo-upload span {
+  margin: 0 5px;
+}
+.group-photo:hover .group-photo-upload {
+  transform: translateY(-29px);
+}
+.group-photo-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+.group-photo:hover .group-photo-remove {
+  opacity: 1;
+  visibility: visible;
+}

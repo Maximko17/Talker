@@ -38,6 +38,8 @@ public class ImageService {
     @Value("${upload.path}")
     private String uploadPath;
 
+    private static final String AMAZON_S3_BUCKET_URL = "https://talker-basket.s3.us-east-2.amazonaws.com";
+
     private final PostImagesService postImagesService;
     private final ChatFileRepository chatFileRepository;
     private final Executor processExecutor;
@@ -54,7 +56,7 @@ public class ImageService {
 
         saveFile(photo, uploadPath + "/users/" + resultFilename, "users/" + resultFilename);
 
-        return "https://talker-basket.s3.us-east-2.amazonaws.com/users/" + resultFilename;
+        return AMAZON_S3_BUCKET_URL + "/users/" + resultFilename;
     }
 
     public String savePostPreviewImage(MultipartFile preview_image) {
@@ -79,7 +81,7 @@ public class ImageService {
                 processExecutor.execute(() -> saveFile(image, uploadPath + "/posts/" + resultFilename, "posts/" + resultFilename));
 
                 PostImages postImage = new PostImages();
-                postImage.setName("https://talker-basket.s3.us-east-2.amazonaws.com/posts/" + resultFilename);
+                postImage.setName(AMAZON_S3_BUCKET_URL + "/posts/" + resultFilename);
                 postImage.setPost(post);
                 postImagesService.saveImage(postImage);
             }
@@ -105,13 +107,38 @@ public class ImageService {
                 saveFile(file, uploadPath + "/messages/" + resultFilename, "messages/" + resultFilename);
 
                 ChatFiles newFile = new ChatFiles();
-                newFile.setFileName("https://talker-basket.s3.us-east-2.amazonaws.com/messages/" + resultFilename);
+                newFile.setFileName(AMAZON_S3_BUCKET_URL + "/messages/" + resultFilename);
                 newFile.setFileType(getFileType(file.getContentType()));
                 newFile.setFileSize(file.getSize());
                 newFile.setMessage(message);
                 chatFileRepository.save(newFile);
             }
         }
+    }
+
+    public String saveGroupImage(MultipartFile image) {
+        if (image != null) {
+            String UUIDFile = java.util.UUID.randomUUID().toString();
+            String resultFilename = UUIDFile + "." + image.getOriginalFilename();
+
+            processExecutor.execute(() -> saveFile(image, uploadPath + "/groups/" + resultFilename, "groups/" + resultFilename));
+
+            return AMAZON_S3_BUCKET_URL + "/groups/" + resultFilename;
+        }else{
+            return AMAZON_S3_BUCKET_URL + "/groups/default-image.jpg";
+        }
+    }
+
+    public String saveBannerImage(MultipartFile image) {
+        if (image != null) {
+            String UUIDFile = java.util.UUID.randomUUID().toString();
+            String resultFilename = UUIDFile + "." + image.getOriginalFilename();
+
+            processExecutor.execute(() -> saveFile(image, uploadPath + "/groups/" + resultFilename, "groups/" + resultFilename));
+
+            return AMAZON_S3_BUCKET_URL + "/groups/" + resultFilename;
+        }
+        return null;
     }
 
     private String getFileType(String file){

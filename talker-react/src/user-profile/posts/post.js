@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import "./post.css";
 import MappleToolTip from "reactjs-mappletooltip";
-import { Link } from "react-router-dom";
-import popover from "../../popover/follow-popover/popover";
-import { Popup } from "semantic-ui-react";
-import { getDate } from "../../utils/date-utils";
 import { bookmarkPost, deleteBookmarke } from "../../actions/post-actions";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { isEmpty, blockMessage1 } from "../../utils/exception-utils";
-import ReportPost from "../../full-post/report-post/report-post";
-import UnreportPost from "../../full-post/report-post/unreport-post/unreport-post";
+import UserPosts from "./user-posts/user-posts";
+import GroupPosts from "./group-posts/group-posts";
 
 class Post extends Component {
   constructor(props) {
@@ -41,8 +37,16 @@ class Post extends Component {
   }
 
   render() {
-    const { posts, showtitles } = this.props;
-    const { error } = this.props;
+    const {
+      posts,
+      showtitles,
+      user,
+      group,
+      security,
+      history,
+      fromWhere,
+      error
+    } = this.props;
 
     if (!isEmpty(error)) {
       return blockMessage1();
@@ -55,103 +59,42 @@ class Post extends Component {
         );
       } else {
         return (
-          <div>
-            {showtitles == true ? <p id="latest">Latest</p> : null}
-            {this.getUserPosts(posts)}
-          </div>
+          // {showtitles == true ? <p id="latest">Latest</p> : null}
+          posts.content &&
+          posts.content.map((post, index) => {
+            if (post.user != null) {
+              return (
+                <div>
+                  <UserPosts
+                    user={fromWhere === "profile" ? user : post.user}
+                    post={post}
+                    security={security}
+                    history={history}
+                    fromWhere={fromWhere}
+                    getBookmarkButton={this.getBookmarkButton}
+                    getReportButton={this.getReportButton}
+                    key={index}
+                  />
+                </div>
+              );
+            } else {
+              return (
+                <GroupPosts
+                  group={fromWhere === "group" ? group : post.group}
+                  post={post}
+                  security={security}
+                  history={history}
+                  fromWhere={fromWhere}
+                  getBookmarkButton={this.getBookmarkButton}
+                  getReportButton={this.getReportButton}
+                  key={index}
+                />
+              );
+            }
+          })
         );
       }
     }
-  }
-
-  getUserPosts(posts) {
-    const { user, security, history, fromWhere } = this.props;
-    let current_user;
-    return (
-      posts.content &&
-      posts.content.map((post, index) => {
-        if (fromWhere !== "profile") {
-          current_user = post.user;
-        } else {
-          current_user = user;
-        }
-        return (
-          <div className="post" key={index}>
-            <div className="post-user-info">
-              <div>
-                <img src={current_user.photo} alt="Img" />
-              </div>
-              <div>
-                <Popup
-                  content={popover(current_user, security, fromWhere)}
-                  trigger={
-                    <Link to={`/profile/${current_user.email}`}>
-                      {current_user.name}
-                    </Link>
-                  }
-                  flowing
-                  hoverable
-                  position="top center"
-                />
-                <p>
-                  {getDate(post.postDate) + " • " + post.reading_time + " min"}
-                </p>
-              </div>
-            </div>
-            <div
-              id="clickable-content"
-              onClick={() => history.push(`/post/${post.id}`)}
-            >
-              <div className="post-main-photo">
-                <img src={post.main_image} alt="main" />
-              </div>
-              <div className="post-title">
-                <p>{post.title}</p>
-              </div>
-              <div className="post-subtitle">
-                <p>{post.subtitle}</p>
-              </div>
-            </div>
-            <div className="post-likes">
-              <div className={post.didMeLikeThisPost ? "likeButton" : null}>
-                <i
-                  className={
-                    post.didMeLikeThisPost ? "fas fa-heart" : "far fa-heart"
-                  }
-                />{" "}
-                {post.totalLikes}
-              </div>
-              <div className="d-flex">
-                <p>{post.totalResponses} responses</p>
-                {this.getBookmarkButton(
-                  post,
-                  security.user.id,
-                  current_user.id
-                )}
-                {this.getReportButton(post, security.user.id, current_user.id)}
-              </div>
-              {post.didMeReportThisPost ? (
-                <UnreportPost
-                  element={post}
-                  user={current_user}
-                  isOneElement={false}
-                  fromWhere={fromWhere}
-                  isThisResponse={false}
-                />
-              ) : (
-                <ReportPost
-                  element={post}
-                  user={current_user}
-                  isOneElement={false}
-                  fromWhere={fromWhere}
-                  isThisResponse={false}
-                />
-              )}
-            </div>
-          </div>
-        );
-      })
-    );
   }
 
   getBookmarkButton(post, securityId, currentUserId) {

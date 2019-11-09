@@ -72,7 +72,7 @@ public class ChatMessageService {
                         message.setWatched(false);
                         message.setIsEdited(false);
                         chat.setLastMessageTime(new Date().getTime());
-                         imageService.saveMessageFiles(files, message);
+                        imageService.saveMessageFiles(files, message);
                         chatRepository.save(chat);
                         chatMessagesRepository.save(message);
                         notificationService.newNotification(authUser, chatUser, "MESSAGE", null, null);
@@ -132,7 +132,7 @@ public class ChatMessageService {
         throw new BadRequestEx("This chat doesn't exist or you don't have access to this chat or you're not following this user");
     }
 
-    public ShortPageDto getFavoriteChatMessages(String authUserEmail,int current_size) {
+    public ShortPageDto getFavoriteChatMessages(String authUserEmail, int current_size) {
         User authUser = userService.getUserByEmail(authUserEmail);
 
         PagedListHolder<ChatMessage> page = new PagedListHolder<>(authUser.getFavoriteMessages());

@@ -42,7 +42,7 @@ class UserProfile extends Component {
   componentDidMount() {
     const { usermail } = this.props.match.params;
     this.props.getUserProfile(usermail);
-    this.props.getAllUserPosts(usermail, 2);
+    this.props.getAllUserPosts(usermail, 1);
   }
 
   changeTab(tab_name) {

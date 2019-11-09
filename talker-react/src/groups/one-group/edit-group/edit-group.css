@@ -1,0 +1,65 @@
+.setting-title {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 800px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.setting-title i {
+  margin: 0 10px 0 0;
+  font-size: 1.5rem;
+}
+.setting-title a:hover {
+  text-decoration: none;
+}
+.settings-layout {
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+.setting {
+  width: 600px;
+  max-height: 300px;
+  height: auto;
+}
+.settings-tab {
+  text-decoration: none;
+  display: block;
+  padding: 0px 20px 10px;
+  color: grey;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.actions {
+  width: 180px;
+  max-height: 300px;
+  height: auto;
+  top: 10px;
+  position: sticky;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+.settings-tab-active {
+  background: #ebebeb;
+  text-decoration: none;
+  display: block;
+  padding: 0px 20px 10px;
+  color: grey;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.settings-subtab-active {
+  background: #ebebeb;
+  padding: 5px 90px 5px 20px;
+  margin: 0 10px;
+  font-size: 1rem;
+}
+.settings-subtab {
+  padding: 5px 90px 5px 20px;
+  margin: 0 10px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: block;
+}

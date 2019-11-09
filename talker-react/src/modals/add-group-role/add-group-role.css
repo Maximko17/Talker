@@ -1,0 +1,35 @@
+.add-group-role-model {
+  max-width: 600px;
+  height: auto;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  background: white;
+  margin: 100px auto;
+}
+.add-group-role-model .header {
+  background: rgb(3, 121, 89);
+  padding: 15px 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  font-size: 1.1rem;
+  font-family: sans-serif;
+}
+.add-group-role-model .header i {
+  color: white;
+  font-size: inherit;
+}
+.add-group-role-model .header button {
+  background: inherit;
+}
+.add-group-role-model .body {
+  padding: 5px;
+}
+
+.add-group-role-model .body .info {
+  margin-left: 10px;
+}

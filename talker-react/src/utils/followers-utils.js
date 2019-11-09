@@ -1,6 +1,10 @@
 import React from "react";
 import LoginPage from "../modals/login-page/login-page";
 import { subscribeToUser, unsubscribeFromUser } from "../actions/user-actions";
+import {
+  subscribeToGroup,
+  unsubscribeFromGroup
+} from "../actions/group-actions";
 import { getDefaultBlockButtom, getBlockDropdown } from "./block-utils";
 
 export default function getDefaultFollowButton(
@@ -131,3 +135,40 @@ function getProfileFollowButton(
 }
 
 export { getProfileFollowButton };
+
+export function getGroupFollowButton(followingGroup, security, fromWhere) {
+  if (security.validToken) {
+    if (followingGroup.isMeFollower) {
+      return (
+        <button
+          className="medium-follow-button-active"
+          onClick={unsubscribeFromGroup(followingGroup.uri, fromWhere)}
+        >
+          Following
+        </button>
+      );
+    } else {
+      return (
+        <button
+          className="medium-follow-button"
+          onClick={subscribeToGroup(followingGroup.uri, fromWhere)}
+        >
+          Follow
+        </button>
+      );
+    }
+  } else {
+    return (
+      <div>
+        <button
+          className="medium-follow-button"
+          data-toggle="modal"
+          data-target="#loginPage"
+        >
+          Follow
+        </button>
+        <LoginPage />
+      </div>
+    );
+  }
+}

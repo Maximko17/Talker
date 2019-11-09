@@ -1,0 +1,75 @@
+.groups-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+.groups-info .tab {
+  height: 50px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  border-bottom: none;
+  width: 125px;
+  text-align: center;
+  line-height: 3;
+  font-weight: 600;
+}
+.groups-info span {
+  color: grey;
+  font-weight: 400;
+}
+.create-group {
+  background: rgb(3, 121, 89);
+  border: 1px solid rgba(3, 121, 89);
+  color: white;
+  height: 30px;
+  width: 130px;
+  border-radius: 3px;
+}
+.all-groups {
+  width: 100%;
+  max-width: 720px;
+  margin: 20px auto;
+  padding: 15px;
+  background: white;
+}
+
+.each-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid lightgrey;
+}
+.each-group-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.each-group-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+.each-group-info div {
+  margin: 0 15px;
+}
+.each-group-info p {
+  margin-bottom: 0.3rem;
+}
+.each-group .name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.each-group .topic {
+  color: grey;
+}
+.each-group .followers-count {
+  color: grey;
+}
+.each-group-actions i {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}

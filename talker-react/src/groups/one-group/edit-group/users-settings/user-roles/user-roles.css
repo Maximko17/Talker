@@ -1,0 +1,126 @@
+.section-header .tab span {
+  color: grey;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0 5px;
+}
+.add-member {
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: white;
+  background: rgb(3, 121, 89);
+}
+
+.search-members .post-search {
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+.member {
+  height: auto;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.member img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+.member .info {
+  display: flex;
+}
+.member .info div {
+  margin: 0 10px;
+  display: block;
+}
+.member .info a {
+  font-weight: 650;
+  margin: 0;
+  text-decoration: none;
+}
+.member .info p {
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.dropbtn {
+  background: #e0e0e0;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: auto;
+  min-width: 180px;
+  padding: 10px;
+  z-index: 1;
+}
+.dropdown-content p {
+  font-weight: 500 !important;
+  color: black;
+  margin: 0;
+}
+.dropdown-content label {
+  margin: 0 5px;
+}
+.dropdown-content .section {
+  margin: 5px 0;
+}
+.dropdown-content .separator {
+  margin: 0 !important;
+}
+.dropdown-content a {
+  display: block;
+  padding: 0px 10px 5px 0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.dropdown-content a:hover {
+  background: #ededed;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #d4d4d4;
+}
+.dropdown-content .save-btn {
+  width: 100%;
+  margin: 5px 0 0;
+  border-radius: 3px;
+  color: white;
+  background: rgb(3, 121, 89);
+}
+.dropdown-content .confirm-block {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.dropdown-content .confirm-block p {
+  color: grey;
+  font-size: 0.9rem;
+  font-weight: 400 !important;
+}
+.dropdown-content .confirm-block .confirm {
+  border-radius: 3px;
+  margin: 5px 5px;
+  background: #de2336;
+  color: white;
+}
+.dropdown-content .confirm-block .cancel {
+  margin: 5px 5px;
+  background: lightgray;
+  border-radius: 3px;
+}

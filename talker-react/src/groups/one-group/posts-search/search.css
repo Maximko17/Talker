@@ -1,0 +1,45 @@
+.post-search {
+  height: 50px;
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.post-search input {
+  height: 100%;
+  width: 90%;
+  border: none;
+  padding: 0 15px 0 0;
+}
+.post-search .tab {
+  text-align: center;
+  height: 100%;
+  margin: 0 10px;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.post-search .clear {
+  height: 100%;
+  background: white;
+  padding: 10px 15px;
+}
+.post-search .clear-hidden {
+  visibility: hidden;
+}
+.post-search .fa-times {
+  color: grey;
+  font-size: inherit;
+}
+.post-search .search-button {
+  margin: 0;
+  height: 100%;
+  padding: 10px 15px;
+  text-align: center;
+  color: grey;
+}

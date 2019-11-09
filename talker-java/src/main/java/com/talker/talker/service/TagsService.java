@@ -6,7 +6,6 @@ import com.talker.talker.domain.User;
 import com.talker.talker.dto.ShortPageDto;
 import com.talker.talker.dto.ShortPostPageDto;
 import com.talker.talker.repository.TagsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +35,7 @@ public class TagsService {
         this.postReportsService = postReportsService;
     }
 
-    public ShortPostPageDto getPostsByTag(String tag, String authUserEmail, Pageable pageable) {
+    public ShortPostPageDto<Set<Posts>> getPostsByTag(String tag, String authUserEmail, Pageable pageable) {
         Tags tags = tagsRepository.findByTagName(tag);
         User authUser = userService.getUserByEmail(authUserEmail);
 
@@ -53,7 +52,7 @@ public class TagsService {
             }
         });
 
-        return new ShortPostPageDto(sortedPosts, posts.getNumberOfElements(), posts.getTotalElements());
+        return new ShortPostPageDto<>(sortedPosts, posts.getNumberOfElements(), posts.getTotalElements());
     }
 
     public ShortPageDto getBySearch(String tagName, Pageable pageable) {

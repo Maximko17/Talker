@@ -9,6 +9,7 @@
   border: 1px solid lightgray;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   padding: 10px 15px;
+  z-index: 1;
 }
 .search-popover .search-all {
   color: grey;

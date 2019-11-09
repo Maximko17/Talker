@@ -14,7 +14,7 @@
   border: 1px solid lightgray;
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .post-user-info {
@@ -25,14 +25,13 @@
 .post-user-info div:nth-child(1) {
   height: 55px;
   border-radius: 25px;
-  border-bottom: 2px solid aquamarine;
-  border-top: 2px solid aquamarine;
 }
 .post-user-info img {
   margin-top: 3px;
   width: 45px;
   height: 45px;
   border-radius: 50px;
+  object-fit: cover;
 }
 .post-user-info p {
   margin: 0 0 0 10px;

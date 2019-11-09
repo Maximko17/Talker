@@ -8,10 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.util.*;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class User {
 
     @Id
@@ -51,6 +48,12 @@ public class User {
     @Transient
     @JsonView(Views.SuperShortPost.class)
     private Boolean haveIBlocked;
+    @Transient
+    private Boolean amIBannedInAGroup;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true)
+    @JsonIgnore
+    private Set<UsersSocialNetworks> usersSocialNetworks = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     @JsonIgnore
@@ -59,6 +62,21 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     @JsonIgnore
     private List<Responses> responses = new ArrayList<>();
+
+    @ManyToMany( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "users_groups",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    @JsonIgnore
+    private Set<Groups> groups = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true)
+    @JsonIgnore
+    private Set<GroupsRoles> groupsRoles = new HashSet<>();
+
+    @ManyToMany(mappedBy = "bannedUsers", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonIgnore
+    private Set<Groups> groupsBans = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "users_bookmarked_posts",
@@ -145,19 +163,4 @@ public class User {
         this.login_date = new Date().getTime();
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return getId().equals(user.getId()) &&
-                getName().equals(user.getName()) &&
-                getEmail().equals(user.getEmail());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
 }

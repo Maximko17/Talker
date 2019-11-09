@@ -110,24 +110,32 @@ class Responses extends Component {
   }
 
   getResponses(responses) {
-    const { security } = this.props;
+    const { security, mainPostUser, mainPostUserId } = this.props;
+    let response_user, fromWhere;
 
     return responses.map(response => {
+      if (response.user.id === mainPostUserId) {
+        response_user = mainPostUser;
+        fromWhere = "post";
+      } else {
+        response_user = response.user;
+        fromWhere = "responses";
+      }
       return (
         <div className="one-response" key={response.id}>
           <div className="post-user-info">
             <div>
-              <img src={response.user.photo} alt="Img" />
+              <img src={response_user.photo} alt="Img" />
             </div>
             <div>
               <Popup
-                content={popover(response.user, security, "post")}
+                content={popover(response_user, security, fromWhere)}
                 trigger={
                   <Link
-                    to={`/profile/${response.user.email}`}
+                    to={`/profile/${response_user.email}`}
                     style={{ color: "rgba(3, 168, 124, 1)" }}
                   >
-                    {response.user.name}
+                    {response_user.name}
                   </Link>
                 }
                 flowing
@@ -152,18 +160,18 @@ class Responses extends Component {
               {this.getBookmarkButton(
                 response,
                 security.user.id,
-                response.user.id
+                response_user.id
               )}
               {this.getReportButton(
                 response,
                 security.user.id,
-                response.user.id
+                response_user.id
               )}
             </div>
             {response.didMeReportThisResponse ? (
               <UnreportPost
                 element={response}
-                user={response.user}
+                user={response_user}
                 isOneElement={false}
                 fromWhere={"post"}
                 isThisResponse={true}
@@ -171,7 +179,7 @@ class Responses extends Component {
             ) : (
               <ReportPost
                 element={response}
-                user={response.user}
+                user={response_user}
                 isOneElement={false}
                 fromWhere={"post"}
                 isThisResponse={true}

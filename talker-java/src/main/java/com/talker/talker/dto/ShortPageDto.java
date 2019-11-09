@@ -9,9 +9,9 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class ShortPageDto {
+public class ShortPageDto<T> {
 
-    private List<?> content;
+    private T content;
     private int currentSize;
     private long totalElements;
 

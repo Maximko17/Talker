@@ -22,6 +22,9 @@ import AllNotifications from "./all-notifications/all-notifications";
 import FullSearch from "./full-search/full-search";
 import OAuth2RedirectHandler from "./oauth2/oauth2-redirect-handler";
 import MyAllPosts from "./my-all-posts/my-all-posts";
+import Groups from "./groups/groups";
+import OneGroup from "./groups/one-group/one-group";
+import EditGroup from "./groups/one-group/edit-group/edit-group";
 
 const accessToken = localStorage.access_token;
 if (accessToken) {
@@ -64,12 +67,14 @@ class App extends Component {
             <Route exact path="/my-chats" component={AllChats} />
             <Route exact path="/search" component={FullSearch} />
             <Route exact path="/my-followings" component={Friends} />
+            <Route exact path="/groups" component={Groups} />
+            <Route exact path="/group/:groupName" component={OneGroup} />
+            <Route exact path="/group/:groupName/edit" component={EditGroup} />
             <Route
               exact
               path="/oauth2/redirect"
               component={OAuth2RedirectHandler}
             />
-
             <Route
               exact
               path="/all-notifications"

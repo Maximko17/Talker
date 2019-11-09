@@ -1,11 +1,11 @@
 package com.talker.talker.service;
 
+import com.talker.talker.domain.Groups;
 import com.talker.talker.domain.User;
 import com.talker.talker.dto.ShortPageDto;
 import com.talker.talker.exceptions.NotFoundEx;
 import com.talker.talker.repository.UserRepository;
 import com.talker.talker.security.TokenProvider;
-import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -140,6 +140,18 @@ public class UserService {
     public User saveUser(User user) {
         userRepository.save(user);
         return user;
+    }
+
+    public Page<User> getGroupUsers(Groups group, Pageable pageable) {
+        return userRepository.findByGroups(group, pageable);
+    }
+
+    public Page<User> getGroupUsersBySearch(Groups group, String username, Pageable pageable) {
+        return userRepository.findByNameContainingAndGroups(username,group, pageable);
+    }
+
+    public Page<User> getBannedGroupUsers(Groups group, String username, Pageable pageable) {
+        return userRepository.findByNameContainingAndGroupsBans(username,group,pageable);
     }
 
     private String checkUrl(String url, String siteName) {

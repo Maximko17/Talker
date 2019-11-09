@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   GET_POST,
   GET_ALL_USER_POSTS,
+  GET_ALL_GROUP_POSTS,
   GET_THREE_RANDOM_POSTS,
   BOOKMARK_POST,
   GET_BOOKMARKED_POSTS,
@@ -95,6 +96,28 @@ export const getAllUserPosts = (usermail, size) => async dispatch => {
 
     dispatch({
       type: GET_ALL_USER_POSTS,
+      payload: res.data
+    });
+    dispatch({
+      type: GET_ERROR,
+      payload: {}
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_ERROR,
+      payload: { status: error.response.status }
+    });
+  }
+};
+
+export const getAllGroupPosts = (groupURI, size) => async dispatch => {
+  try {
+    const res = await axios.get(
+      `/posts/${groupURI}/allPosts?page=0&size=${size}&sort=postDate,desc`
+    );
+
+    dispatch({
+      type: GET_ALL_GROUP_POSTS,
       payload: res.data
     });
     dispatch({

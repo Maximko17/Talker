@@ -137,6 +137,7 @@ a:hover {
   border-radius: 50px;
   width: 80px;
   height: 80px;
+  object-fit: cover;
 }
 .after-post-profile-info .profile-info {
   display: flex;

@@ -16,7 +16,9 @@ import {
 } from "../actions/post-actions";
 import { getDate, getNumber } from "../utils/date-utils";
 import Header from "../main-components/header/header";
-import getDefaultFollowButton from "../utils/followers-utils";
+import getDefaultFollowButton, {
+  getGroupFollowButton
+} from "../utils/followers-utils";
 import { getPostLikeButton } from "../utils/likes-utils";
 import { getBlockDropdown } from "../utils/block-utils";
 import { isEmpty, postErrorMessage } from "../utils/exception-utils";
@@ -27,14 +29,36 @@ class FullPost extends Component {
     this.props.getPost(postid);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.postid !== this.props.match.params.postid) {
+      this.props.getPost(this.props.match.params.postid);
+    }
+  }
+
   render() {
-    const { post, security, error } = this.props;
-    const { user } = this.props.post;
+    const { post, security, error, history } = this.props;
+    const { user, group } = this.props.post;
+    let object, id, name, image, link, description;
     if (!isEmpty(error)) {
       return postErrorMessage(this.props.match.params.postid, error.status);
     }
-    if (user == undefined) {
+    if (isEmpty(user) && isEmpty(group)) {
       return null;
+    }
+    if (user != null) {
+      object = user;
+      id = user.id;
+      name = user.name;
+      image = user.photo;
+      link = `/profile/${user.email}`;
+      description = user.description;
+    } else {
+      object = group;
+      id = group.uri;
+      name = group.name;
+      image = group.image;
+      link = `/groups/${group.uri}`;
+      description = group.description;
     }
     return (
       <div>
@@ -44,12 +68,12 @@ class FullPost extends Component {
           <div className="full-post-subtitle">{post.subtitle}</div>
           <div className="post-user-info mt-4 mb-4">
             <div>
-              <img src={user.photo} alt="Img" />
+              <img src={image} alt="Img" />
             </div>
             <div>
               <Popup
-                content={popover(user, security, "post")}
-                trigger={<Link to={"/profile/" + user.email}>{user.name}</Link>}
+                content={popover(object, security, "post")}
+                trigger={<Link to={link}>{name}</Link>}
                 flowing
                 hoverable
                 position="top center"
@@ -94,7 +118,7 @@ class FullPost extends Component {
                 </button>
                 <div>Write a response</div>
               </MappleToolTip>
-              {security.user.id !== user.id ? (
+              {security.user.id !== id ? (
                 <MappleToolTip>
                   <button
                     style={post.didMeSaveThisPost ? { color: "black" } : null}
@@ -119,26 +143,32 @@ class FullPost extends Component {
                   </div>
                 </MappleToolTip>
               ) : null}
-              {getBlockDropdown(user, security.user, "post", "", post)}
+              {/* {getBlockDropdown(user, security.user, "post", "", post)} */}
             </div>
           </div>
 
           <div className="after-post-profile-info">
             <div className="profile-info">
-              <img src={user.photo} alt="Img" />
+              <img src={image} alt="Img" />
               <div className="ml-3">
                 <p>WRITTEN BY</p>
-                <Link to={"/profile/" + user.email}>{user.name}</Link>
-                <p>{user.description}</p>
+                <Link to={link}>{name}</Link>
+                <p>{description}</p>
               </div>
             </div>
-            <div>{getDefaultFollowButton(user, security, "post")}</div>
+            {user != null
+              ? getDefaultFollowButton(object, security, "post")
+              : getGroupFollowButton(object, security, "post")}
           </div>
         </div>
 
         <div style={{ background: "ghostwhite" }}>
-          <RecommendStories postId={post.id} />
-          <Responses postId={post.id} />
+          <RecommendStories postId={post.id} history={history} />
+          <Responses
+            postId={post.id}
+            mainPostUser={object}
+            mainPostUserId={id}
+          />
         </div>
       </div>
     );

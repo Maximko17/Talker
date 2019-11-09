@@ -48,6 +48,8 @@
 .after-post-recomendation-profile img {
   width: 45px;
   border-radius: 50px;
+  object-fit: cover;
+  height: 45px;
 }
 .after-post-recomendation-profile div:nth-child(2) {
   margin-left: 10px;

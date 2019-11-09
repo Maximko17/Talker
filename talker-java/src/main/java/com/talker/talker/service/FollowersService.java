@@ -1,5 +1,6 @@
 package com.talker.talker.service;
 
+import com.talker.talker.domain.Groups;
 import com.talker.talker.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,8 @@ public class FollowersService {
 
     private UserService userService;
     private NotificationService notificationService;
+    private GroupService groupService;
+
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -18,6 +21,10 @@ public class FollowersService {
     @Autowired
     public void setNotificationService(NotificationService notificationService) {
         this.notificationService = notificationService;
+    }
+    @Autowired
+    public void setGroupService(GroupService groupService) {
+        this.groupService = groupService;
     }
 
     public Boolean checkSubscriptionToUser(User followerUser, User followingUser) {
@@ -84,4 +91,33 @@ public class FollowersService {
             userService.saveUser(followerUser);
         }
     }
+
+    public void subscribeToGroup(String groupURI, String follower) {
+        Groups group = groupService.getGroupByURI(groupURI);
+        User followerUser = userService.getUserByEmail(follower);
+
+        if (!followerUser.getGroups().contains(group)){
+            followerUser.getGroups().add(group);
+            group.setTotalFollowers(group.getTotalFollowers() + 1);
+            group.getUsers().add(followerUser);
+
+            userService.saveUser(followerUser);
+        }
+    }
+
+    public void unsubscribeFromGroup(String groupURI, String follower) {
+        Groups group = groupService.getGroupByURI(groupURI);
+        User followerUser = userService.getUserByEmail(follower);
+
+        if (followerUser.getGroups().contains(group)){
+            followerUser.getGroups().remove(group);
+            group.setTotalFollowers(group.getTotalFollowers() - 1);
+            group.getUsers().remove(followerUser);
+
+            userService.saveUser(followerUser);
+        }
+
+    }
+
+
 }

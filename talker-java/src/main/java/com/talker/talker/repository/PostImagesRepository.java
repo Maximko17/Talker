@@ -7,6 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PostImagesRepository extends JpaRepository<PostImages,Long> {
-
     List<PostImages> getAllByPostOrderBySequence(Posts post);
 }

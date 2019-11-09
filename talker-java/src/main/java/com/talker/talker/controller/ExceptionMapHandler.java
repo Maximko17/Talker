@@ -1,4 +1,4 @@
-package com.talker.talker.domain;
+package com.talker.talker.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

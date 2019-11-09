@@ -1,0 +1,82 @@
+.create-group-modal {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 0.5rem;
+}
+.create-group-modal .header {
+  background: rgb(3, 121, 89);
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.create-group-modal .header button {
+  background: rgb(3, 121, 89);
+}
+.create-group-modal .header .fa-times {
+  font-size: 1.1rem;
+  padding: 0;
+  color: white;
+}
+
+.create-group-modal .body {
+  text-align: center;
+}
+.create-group-modal .body img {
+  margin: 20px 0 0 0;
+  width: 200px;
+}
+.input-form {
+  margin: 20px 0 40px;
+}
+.input-form textarea {
+  padding: 5px 10px !important;
+}
+.group-input {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  max-width: 500px;
+  width: 100%;
+}
+.group-input .title {
+  color: grey;
+  font-size: 0.95rem;
+  width: 30%;
+  text-align: right;
+}
+.group-input input,
+.group-input select,
+.group-input textarea {
+  padding: 0 10px;
+  width: 70%;
+  margin: 0 10px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  height: 35px;
+}
+
+.create-group-modal .footer {
+  border-top: 1px solid lightgrey;
+  padding: 1rem;
+  text-align: right;
+}
+.create-group-modal .footer .cancel {
+  background: white;
+  color: rgb(3, 121, 89);
+  margin: 0 5px;
+}
+.create-group-modal .footer .submit {
+  background: rgb(3, 121, 89);
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin: 0 5px;
+}

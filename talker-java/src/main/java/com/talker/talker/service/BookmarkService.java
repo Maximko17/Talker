@@ -47,8 +47,13 @@ public class BookmarkService {
     public void bookmarkPost(Posts post, String authUserEmail) {
         User authUser = userService.getUserByEmail(authUserEmail);
 
-        if (!userService.haveIBlockedThisUser(authUser, post.getUser()) && !userService.haveMeBlockedByThisUser(authUser, post.getUser())
-                && !post.getUser().getId().equals(authUser.getId())) {
+        if (post.getUser() != null){
+            if (!userService.haveIBlockedThisUser(authUser, post.getUser()) && !userService.haveMeBlockedByThisUser(authUser, post.getUser())
+                    && !post.getUser().getId().equals(authUser.getId())) {
+                authUser.getBookmarkedPosts().add(post);
+                userService.saveUser(authUser);
+            }
+        }else{
             authUser.getBookmarkedPosts().add(post);
             userService.saveUser(authUser);
         }

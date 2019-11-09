@@ -10,7 +10,6 @@ import java.util.List;
 
 
 public interface NotificationRepository extends JpaRepository<Notification, Long> {
-    Page<Notification> findAllByToUserAndTypeNotAndWatchedFalseOrderByDateDesc(User user,String type, Pageable pageable);
     Page<Notification> findAllByToUserAndTypeNotOrderByDateDesc(User user,String type, Pageable pageable);
     List<Notification> findTop10ByToUserAndTypeNotOrderByDateDesc(User user,String type);
     List<Notification> findAllByToUserAndTypeNot(User user,String type);
